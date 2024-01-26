@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraPan : MonoBehaviour
 {
         private Vector3 cameraRotation = new Vector3 (0,0,0);
+        [SerializeField] private float xSensitivity = 0.5;
+        [SerializeField] private float ySensitivity = 0.5;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,8 +15,14 @@ public class CameraPan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cameraRotation.x -= Input.GetAxis("Vertical");
-        cameraRotation.y += Input.GetAxis("Horizontal");
+        cameraRotation.x -= xSensitivity * Input.GetAxis("Vertical");
+        cameraRotation.y += ySensitivity * Input.GetAxis("Horizontal");
+        if (cameraRotation.x < -90) {
+            cameraRotation.x = -90;
+        }
+        if (cameraRotation.x > 90) {
+            cameraRotation.x = 90;
+        }
         transform.rotation = Quaternion.Euler(cameraRotation);
     }
 }
