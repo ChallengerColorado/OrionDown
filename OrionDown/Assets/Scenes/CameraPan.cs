@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraPan : MonoBehaviour
 {
         private Vector3 cameraRotation = new Vector3 (0,0,0);
-        [SerializeField] private float xSensitivity = 0.5;
-        [SerializeField] private float ySensitivity = 0.5;
+        [SerializeField] private float xSensitivity = 0.5f;
+        [SerializeField] private float ySensitivity = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
