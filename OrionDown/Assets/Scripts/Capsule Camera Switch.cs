@@ -9,6 +9,7 @@ public class CapsuleCameraSwitch : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera vcam1;
     [SerializeField] private CinemachineVirtualCamera vcam2;
     [SerializeField] private CinemachineVirtualCamera vcam3;
+    [SerializeField] private CinemachineVirtualCamera vcam4;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class CapsuleCameraSwitch : MonoBehaviour
         vcam1.m_Priority = 10;
         vcam2.m_Priority = 10;
         vcam3.m_Priority = 10;
+        vcam4.m_Priority = 10;
         capsuleCamera.m_Priority = 11;
     }
     }
