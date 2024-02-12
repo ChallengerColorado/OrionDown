@@ -2277,10 +2277,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 691660528}
+      addedObject: {fileID: 691660526}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 691660526}
+      addedObject: {fileID: 691660530}
   m_SourcePrefab: {fileID: 100100000, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
 --- !u!1 &691660525 stripped
 GameObject:
@@ -2306,7 +2306,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1151388028547126963, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
   m_PrefabInstance: {fileID: 691660524}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &691660528
+--- !u!65 &691660530
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2325,7 +2325,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.05, y: 2.45, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &742524204
 GameObject:
@@ -2680,7 +2680,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.05, y: 2.45, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &914411275
 PrefabInstance:
@@ -4334,7 +4334,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.05, y: 2.45, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1710065780
 PrefabInstance:
@@ -4443,7 +4443,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.05, y: 2.45, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1710065784 stripped
 Transform:
@@ -5478,7 +5478,7 @@ MonoBehaviour:
   vcam1: {fileID: 355391549}
   vcam2: {fileID: 1658931813}
   vcam3: {fileID: 67752592}
-  vcam4: {fileID: 0}
+  vcam4: {fileID: 181486189}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
