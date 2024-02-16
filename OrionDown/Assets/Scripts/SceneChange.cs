@@ -6,7 +6,12 @@ using UnityEngine.SceneManagement;
 public class SceneChange : MonoBehaviour
 {
     public void ChangeToScene(int sceneID) {
-        GameManager.Instance.BeginGame(GameManager.Difficulty.Easy);
+        // Temporary! Replace with solution that uses GameManager directly
+        if (sceneID == 1)
+            GameManager.Instance.StartGame(GameManager.Difficulty.Easy);
+        else
+            GameManager.Instance.StopGame();
+
         SceneManager.LoadScene(sceneID);
     }
 }

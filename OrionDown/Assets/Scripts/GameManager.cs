@@ -39,12 +39,22 @@ public sealed class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void BeginGame(Difficulty difficulty)
+    public void StartGame(Difficulty difficulty)
     {
         Debug.Log("Start with difficulty: " + difficulty.ToString());
 
         timer = new Timer(300);
-        StartCoroutine(timer.Run());
+        StartCoroutine(timer.Run);
+    }
+
+    public void PauseGame()
+    {
+        timer.SetPaused(true);
+    }
+
+    public void StopGame()
+    {
+        StopCoroutine(timer.Run);
     }
 
 }
