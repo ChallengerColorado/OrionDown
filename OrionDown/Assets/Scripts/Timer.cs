@@ -5,8 +5,8 @@ using UnityEngine;
 public sealed class Timer
 {
 
-    private int totalSeconds;
-    private int remainingSeconds;
+    public int TotalSeconds { get; private set; }
+    public int RemainingSeconds { get; private set; }
 
     private bool paused = false;
 
@@ -15,19 +15,19 @@ public sealed class Timer
 
     public Timer(int timeLimitSeconds)
     {
-        totalSeconds = timeLimitSeconds;
-        remainingSeconds = timeLimitSeconds;
+        TotalSeconds = timeLimitSeconds;
+        RemainingSeconds = timeLimitSeconds;
 
         Run = RunCoroutine();
     }
 
     private IEnumerator RunCoroutine()
     {
-        while (remainingSeconds > 0 && !paused)
+        while (RemainingSeconds > 0 && !paused)
         {
             yield return new WaitForSeconds(1);
-            remainingSeconds--;
-            Debug.Log($"Time Left: {remainingSeconds}/{totalSeconds}");
+            RemainingSeconds--;
+            Debug.Log($"Time Left: {RemainingSeconds}/{TotalSeconds}");
         }
     }
 

@@ -26,7 +26,7 @@ public sealed class GameManager : MonoBehaviour
         Difficult
     }
 
-    private Timer timer;
+    public Timer GameTimer { get; private set; }
 
     void Awake()
     {
@@ -43,18 +43,18 @@ public sealed class GameManager : MonoBehaviour
     {
         Debug.Log("Start with difficulty: " + difficulty.ToString());
 
-        timer = new Timer(300);
-        StartCoroutine(timer.Run);
+        GameTimer = new Timer(300);
+        StartCoroutine(GameTimer.Run);
     }
 
     public void PauseGame()
     {
-        timer.SetPaused(true);
+        GameTimer.SetPaused(true);
     }
 
     public void StopGame()
     {
-        StopCoroutine(timer.Run);
+        StopCoroutine(GameTimer.Run);
     }
 
 }
