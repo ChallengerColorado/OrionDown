@@ -1,19 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public sealed class GameManager
+public sealed class GameManager : ScriptableSingleton<GameManager>
 {
-    private static GameManager _instance;
-    public static GameManager Instance {
-        get
-        {
-            if (_instance == null) _instance = new GameManager();
-            
-            return _instance;
-        }
-    }
 
     public enum Difficulty
     {
@@ -22,17 +14,43 @@ public sealed class GameManager
         Difficult
     }
 
-    GameManager()
+    private GameObject _stateManager;
+    public GameObject StateManager
     {
-        if (_instance != null)
+        get
         {
-            throw new InvalidOperationException("Only one instance of the GameManager may exist");
+            return _stateManager ?? new GameObject("[State Manager]", typeof(StateManager));
         }
-        _instance = this;
     }
+
+    private Timer timer;
 
     public void BeginGame(Difficulty difficulty)
     {
         Debug.Log("Start with difficulty: " + difficulty.ToString());
+
+        timer = new Timer(300);
+        StateManager.GetComponent<StateManager>().BeginCoroutine(timer.Run());
     }
+
+    private sealed class Timer
+    {
+
+        private int remainingSeconds;
+
+        public Timer(int timeLimitSeconds) {
+            remainingSeconds = timeLimitSeconds;
+        }
+        public IEnumerator Run()
+        {
+            while (remainingSeconds > 0)
+            {
+                yield return new WaitForSeconds(1);
+                remainingSeconds--;
+                Debug.Log($"Time Left: {remainingSeconds}");
+            }
+        }
+
+    }
+
 }
