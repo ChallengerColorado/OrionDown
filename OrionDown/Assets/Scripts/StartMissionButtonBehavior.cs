@@ -16,7 +16,7 @@ public class StartMission : MonoBehaviour
         }
         else
         {
-            GetComponent<SceneChange>().ChangeToScene(1);
+            GameManager.Instance.StartGame(GameManager.Difficulty.Easy);
         }
     }
 }

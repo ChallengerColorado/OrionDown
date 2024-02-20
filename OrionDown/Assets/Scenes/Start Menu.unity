@@ -665,7 +665,6 @@ GameObject:
   - component: {fileID: 1119502611}
   - component: {fileID: 1119502610}
   - component: {fileID: 1119502609}
-  - component: {fileID: 1119502612}
   - component: {fileID: 1119502613}
   m_Layer: 5
   m_Name: Start Mission Button
@@ -788,18 +787,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119502607}
   m_CullTransparentMesh: 1
---- !u!114 &1119502612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119502607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c98d751b7a3b9498cc6fb4f9af866b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1119502613
 MonoBehaviour:
   m_ObjectHideFlags: 0

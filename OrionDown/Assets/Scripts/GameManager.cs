@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public sealed class GameManager : MonoBehaviour
 {
@@ -43,6 +45,8 @@ public sealed class GameManager : MonoBehaviour
     {
         Debug.Log("Start with difficulty: " + difficulty.ToString());
 
+        SceneManager.LoadScene(1);
+
         GameTimer = new Timer(300);
         StartCoroutine(GameTimer.Run);
     }
@@ -52,9 +56,10 @@ public sealed class GameManager : MonoBehaviour
         GameTimer.SetPaused(true);
     }
 
-    public void StopGame()
+    public void StopGame(bool finished)
     {
         StopCoroutine(GameTimer.Run);
+        SceneManager.LoadScene(finished ? 2 : 0);
     }
 
 }

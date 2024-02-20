@@ -726,7 +726,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -752,8 +752,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690585995}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.02836888, y: -0.9502836, z: 0.29645786, w: -0.09093468}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 5.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -973,9 +973,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 786111891}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChangeToScene
-        m_Mode: 3
+        m_TargetAssemblyTypeName: MenuButtonBehavior, Assembly-CSharp
+        m_MethodName: GoToEnd
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 786111886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c98d751b7a3b9498cc6fb4f9af866b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c588ac04009bae429745eea4fcac9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1271108331
@@ -1178,9 +1178,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1324732669}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChangeToScene
-        m_Mode: 3
+        m_TargetAssemblyTypeName: MenuButtonBehavior, Assembly-CSharp
+        m_MethodName: GoToMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1236,7 +1236,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1324732664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c98d751b7a3b9498cc6fb4f9af866b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c588ac04009bae429745eea4fcac9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1650825411

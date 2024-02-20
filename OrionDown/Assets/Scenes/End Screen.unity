@@ -779,9 +779,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1192116486}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChangeToScene
-        m_Mode: 3
+        m_TargetAssemblyTypeName: MenuButtonBehavior, Assembly-CSharp
+        m_MethodName: GoToMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1192116481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c98d751b7a3b9498cc6fb4f9af866b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c588ac04009bae429745eea4fcac9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1553103690
