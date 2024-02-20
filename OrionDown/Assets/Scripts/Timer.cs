@@ -27,7 +27,6 @@ public sealed class Timer
         {
             yield return new WaitForSeconds(1);
             RemainingSeconds--;
-            Debug.Log($"Time Left: {RemainingSeconds}/{TotalSeconds}");
         }
     }
 
