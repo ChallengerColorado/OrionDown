@@ -341,8 +341,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -860,6 +860,7 @@ RectTransform:
   m_Children:
   - {fileID: 786111887}
   - {fileID: 1324732665}
+  - {fileID: 1650825412}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2639,17 +2640,17 @@ RectTransform:
   m_GameObject: {fileID: 786111886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.47668, y: 0.47668, z: 0.47668}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1901389150}
   m_Father: {fileID: 226751082}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -441, y: 244}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 15, y: -15}
+  m_SizeDelta: {x: 110, y: 25}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &786111888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2695,9 +2696,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 786111891}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChangeToScene
-        m_Mode: 3
+        m_TargetAssemblyTypeName: MenuButtonBehavior, Assembly-CSharp
+        m_MethodName: GoToEnd
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2753,7 +2754,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 786111886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c98d751b7a3b9498cc6fb4f9af866b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c588ac04009bae429745eea4fcac9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &861497768
@@ -3753,17 +3754,17 @@ RectTransform:
   m_GameObject: {fileID: 1324732664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.47668, y: 0.47668, z: 0.47668}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 46319418}
   m_Father: {fileID: 226751082}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -441, y: 224.94}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 15, y: -50}
+  m_SizeDelta: {x: 110, y: 25}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1324732666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3809,9 +3810,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1324732669}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChangeToScene
-        m_Mode: 3
+        m_TargetAssemblyTypeName: MenuButtonBehavior, Assembly-CSharp
+        m_MethodName: GoToMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3867,7 +3868,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1324732664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c98d751b7a3b9498cc6fb4f9af866b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c588ac04009bae429745eea4fcac9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1372257441
@@ -5513,8 +5514,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
