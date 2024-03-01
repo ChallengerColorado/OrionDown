@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Maze : MonoBehaviour
 {
-    enum move{
+    public enum move{
         Left,
         Up,
         Down,
@@ -23,9 +23,14 @@ public class Maze : MonoBehaviour
     {
 
     }
-    void MazePositioningSystem(move lastmove){
-        if (mazepath.Last() == oposites[lastmove]){
+    public void MazePositioningSystem(move lastmove){
+        Debug.Log('1');
+        if (mazepath.Count() == 0){
+            mazepath.Add(lastmove);
+        }
+        else if (mazepath.Last() == oposites[lastmove]){
             mazepath.RemoveAt(mazepath.Count - 1);
+            Debug.Log('2');
         }
         else{
             mazepath.Add(lastmove);
@@ -33,23 +38,23 @@ public class Maze : MonoBehaviour
 
     }
 
-    void mazeEnd(){
-        if (mazepath == mazeSolution){
+    public void MazeEnd(){
+        Debug.Log("5");
+        if (mazepath.SequenceEqual(mazeSolution)){
             //mazeIsFixed = true;
             Debug.Log("Hooray");
         }
         else{
-            resetmaze();
+            mazepath.Clear();
         }
-    }
-
-    void resetmaze(){
-        mazepath.Clear();
-
     }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(mazepath);
+        string moves = "";
+        foreach(move i in mazepath){
+            moves += i.ToString();
+        }
+        //Debug.Log(moves);
     }
 }
