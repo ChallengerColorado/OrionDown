@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587272, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2684,6 +2684,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 691660530}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 691660531}
   m_SourcePrefab: {fileID: 100100000, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
 --- !u!1 &691660525 stripped
 GameObject:
@@ -2730,6 +2733,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.05, y: 2.45, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &691660531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691660525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8b09627c32e31418c8a2da376ca325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &742524204
 GameObject:
   m_ObjectHideFlags: 3
@@ -2983,6 +2998,7 @@ GameObject:
   - component: {fileID: 807206039}
   - component: {fileID: 807206038}
   - component: {fileID: 807206037}
+  - component: {fileID: 807206040}
   m_Layer: 0
   m_Name: Button (1)
   m_TagString: Untagged
@@ -3053,7 +3069,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 807206038}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 807206040}
+        m_TargetAssemblyTypeName: MazeButton, Assembly-CSharp
+        m_MethodName: OnButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &807206038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3092,6 +3120,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807206035}
   m_CullTransparentMesh: 1
+--- !u!114 &807206040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807206035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d02718e8069bd1438a0cc2e4a91c3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maze: {fileID: 691660525}
+  lastmove: 1
 --- !u!1 &816869009
 GameObject:
   m_ObjectHideFlags: 0
@@ -3426,6 +3468,7 @@ GameObject:
   - component: {fileID: 913085871}
   - component: {fileID: 913085870}
   - component: {fileID: 913085869}
+  - component: {fileID: 913085872}
   m_Layer: 0
   m_Name: SubmitButton
   m_TagString: Untagged
@@ -3496,7 +3539,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 913085870}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 691660531}
+        m_TargetAssemblyTypeName: Maze, Assembly-CSharp
+        m_MethodName: MazeEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &913085870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3535,6 +3590,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913085867}
   m_CullTransparentMesh: 1
+--- !u!114 &913085872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913085867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2caa2a609dc9d62468490570645c2e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maze: {fileID: 691660525}
 --- !u!1001 &913440481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4106,6 +4174,7 @@ GameObject:
   - component: {fileID: 1121877605}
   - component: {fileID: 1121877604}
   - component: {fileID: 1121877603}
+  - component: {fileID: 1121877606}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -4176,7 +4245,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1121877604}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1121877606}
+        m_TargetAssemblyTypeName: MazeButton, Assembly-CSharp
+        m_MethodName: OnButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1121877604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4215,6 +4296,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121877601}
   m_CullTransparentMesh: 1
+--- !u!114 &1121877606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121877601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d02718e8069bd1438a0cc2e4a91c3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maze: {fileID: 691660525}
+  lastmove: 0
 --- !u!1 &1133112442
 GameObject:
   m_ObjectHideFlags: 0
@@ -4373,6 +4468,7 @@ GameObject:
   - component: {fileID: 1235290797}
   - component: {fileID: 1235290796}
   - component: {fileID: 1235290795}
+  - component: {fileID: 1235290798}
   m_Layer: 0
   m_Name: Button (2)
   m_TagString: Untagged
@@ -4443,7 +4539,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1235290796}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1235290798}
+        m_TargetAssemblyTypeName: MazeButton, Assembly-CSharp
+        m_MethodName: OnButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1235290796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4482,6 +4590,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235290793}
   m_CullTransparentMesh: 1
+--- !u!114 &1235290798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235290793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d02718e8069bd1438a0cc2e4a91c3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maze: {fileID: 691660525}
+  lastmove: 2
 --- !u!1 &1241237153
 GameObject:
   m_ObjectHideFlags: 0
@@ -4493,6 +4615,7 @@ GameObject:
   - component: {fileID: 1241237154}
   - component: {fileID: 1241237156}
   - component: {fileID: 1241237155}
+  - component: {fileID: 1241237157}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4616,6 +4739,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241237153}
   m_CullTransparentMesh: 1
+--- !u!114 &1241237157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241237153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d02718e8069bd1438a0cc2e4a91c3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maze: {fileID: 691660525}
+  lastmove: 1
 --- !u!1001 &1271108331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5961,6 +6098,7 @@ GameObject:
   - component: {fileID: 1693691300}
   - component: {fileID: 1693691299}
   - component: {fileID: 1693691298}
+  - component: {fileID: 1693691301}
   m_Layer: 0
   m_Name: Button (3)
   m_TagString: Untagged
@@ -6031,7 +6169,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1693691299}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1693691301}
+        m_TargetAssemblyTypeName: MazeButton, Assembly-CSharp
+        m_MethodName: OnButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1693691299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6070,6 +6220,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693691296}
   m_CullTransparentMesh: 1
+--- !u!114 &1693691301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693691296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d02718e8069bd1438a0cc2e4a91c3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maze: {fileID: 691660525}
+  lastmove: 3
 --- !u!1001 &1710065780
 PrefabInstance:
   m_ObjectHideFlags: 0
