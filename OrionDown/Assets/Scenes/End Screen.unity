@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 376415241}
   - component: {fileID: 376415240}
   - component: {fileID: 376415239}
-  - component: {fileID: 376415243}
   m_Layer: 5
   m_Name: End Screen UI
   m_TagString: Untagged
@@ -361,18 +360,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &376415243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376415238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c98d751b7a3b9498cc6fb4f9af866b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &427552108
 GameObject:
   m_ObjectHideFlags: 0
