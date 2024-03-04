@@ -55,6 +55,6 @@ public class Maze : MonoBehaviour
         foreach(move i in mazepath){
             moves += i.ToString();
         }
-        //Debug.Log(moves);
+        Debug.Log(moves);
     }
 }
