@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Maze : MonoBehaviour
+public class Maze : ModuleBehaviour
 {
     public enum move{
         Left,
@@ -43,6 +43,7 @@ public class Maze : MonoBehaviour
         if (mazepath.SequenceEqual(mazeSolution)){
             //mazeIsFixed = true;
             Debug.Log("Hooray");
+            Status = true;
         }
         else{
             mazepath.Clear();

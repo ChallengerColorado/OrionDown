@@ -1,11 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Assertions;
 
-public class ModuleBehavior : MonoBehaviour
+public class ModuleBehaviour : MonoBehaviour
 {
 
     [SerializeField] TMP_Text statusText;

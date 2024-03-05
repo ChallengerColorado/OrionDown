@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wires : ModuleBehavior
+public class Wires : ModuleBehaviour
 {
     //dificulty system
     private Dictionary<int, int[]> WireConfig = new Dictionary<int, int[]>(){
