@@ -5,6 +5,7 @@ using UnityEngine;
 public class ModuleBehaviour : MonoBehaviour
 {
 
+    [SerializeField] TMP_Text titleText;
     [SerializeField] TMP_Text statusText;
 
     bool _status;
@@ -18,7 +19,7 @@ public class ModuleBehaviour : MonoBehaviour
             _status = value;
             SetStatusText("BB");
         }
-    };
+    }
 
     private void SetStatusText(string status) {
         if (status.Length != 2)
