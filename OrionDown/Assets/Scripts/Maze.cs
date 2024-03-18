@@ -105,6 +105,8 @@ public class Maze : ModuleBehaviour
 
     private IEnumerator VerifyPath()
     {
+        if (Status)
+            yield break;
 
         blink.gameObject.SetActive(true);
         yield return new WaitForSeconds(blinkDuration);
