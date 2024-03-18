@@ -48,7 +48,7 @@ public class Maze : ModuleBehaviour
         Right
     }
     List<move> mazepath = new List<move>();
-    List<move> mazeSolution = new List<move>() {move.Left, move.Left, move.Left, move.Left};
+    List<move> mazeSolution = new List<move>() {move.Left, move.Up, move.Left, move.Down, move.Right};
     Dictionary<move, move> oposites = new Dictionary<move, move>(){
                                 {move.Left, move.Right},
                                 {move.Up, move.Down},
@@ -108,17 +108,14 @@ public class Maze : ModuleBehaviour
 
         blink.gameObject.SetActive(true);
         yield return new WaitForSeconds(blinkDuration);
-        Debug.Log("Starting blink " + mazepath.Zip(mazeSolution, Tuple.Create));
 
         foreach (var movePair in mazepath.Zip(mazeSolution, Tuple.Create))
         {
-            Debug.Log("blink");
             blink.gameObject.SetActive(false);
             yield return new WaitForSeconds(blinkDuration);
 
             if (movePair.Item1 != movePair.Item2)
             {
-                Debug.Log("Blink Wrong");
                 mazepath = new List<move>();
                 BlinkTile = blinkStartTile;
                 StartCoroutine(DisplayInvalidMessage());
@@ -130,20 +127,17 @@ public class Maze : ModuleBehaviour
             yield return new WaitForSeconds(blinkDuration);
         }
 
-        Debug.Log("done blinking");
+        Status = true;
     }
 
     private IEnumerator DisplayInvalidMessage()
     {
-        Debug.Log("Invalid blink");
         for (int i = 0; i < invalidTextBlinkNumber; i++)
         {
-            Debug.Log("blink ON");
             invalidText.gameObject.SetActive(true);
             yield return new WaitForSeconds(invalidTextBlinkDuration);
 
 
-            Debug.Log("blink OFF");
             invalidText.gameObject.SetActive(false);
             yield return new WaitForSeconds(invalidTextBlinkDuration);
         }
