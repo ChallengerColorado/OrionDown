@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587272, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1886,7 +1886,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 270170074}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 913440486}
+        m_TargetAssemblyTypeName: Passwords, Assembly-CSharp
+        m_MethodName: Cycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &270170074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2007,7 +2019,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 324049144}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 913440486}
+        m_TargetAssemblyTypeName: Passwords, Assembly-CSharp
+        m_MethodName: ReverseCycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &324049144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,7 +2396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A
+  m_text: B
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2968,6 +2992,7 @@ GameObject:
   - component: {fileID: 523375569}
   - component: {fileID: 523375571}
   - component: {fileID: 523375570}
+  - component: {fileID: 523375572}
   m_Layer: 0
   m_Name: Letter Display
   m_TagString: Untagged
@@ -3091,6 +3116,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523375568}
   m_CullTransparentMesh: 1
+--- !u!114 &523375572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523375568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d668adabd160607478fad7b2bc9c9e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  char1Text: {fileID: 0}
+  char2Text: {fileID: 0}
+  char3Text: {fileID: 0}
+  char4Text: {fileID: 0}
+  char5Text: {fileID: 0}
 --- !u!1 &529790711
 GameObject:
   m_ObjectHideFlags: 0
@@ -3765,6 +3807,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60.000004
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3790,6 +3833,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690585995}
   serializedVersion: 2
+  m_LocalRotation: {x: -0.02836888, y: -0.9502836, z: 0.29645786, w: -0.09093468}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalRotation: {x: -0.02836888, y: -0.9502836, z: 0.29645786, w: -0.09093468}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -4024,6 +4069,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8b09627c32e31418c8a2da376ca325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleText: {fileID: 0}
+  statusText: {fileID: 0}
   titleText: {fileID: 1581169776}
   statusText: {fileID: 1473597893}
   mapBackground: {fileID: 44625940}
@@ -5225,6 +5272,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 913440483}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 913440486}
   m_SourcePrefab: {fileID: 100100000, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
 --- !u!1 &913440482 stripped
 GameObject:
@@ -5271,6 +5321,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.05, y: 2.45, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &913440486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913440482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d668adabd160607478fad7b2bc9c9e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  char1Text: {fileID: 380274870}
+  char2Text: {fileID: 523375570}
+  char3Text: {fileID: 2004410121}
+  char4Text: {fileID: 431824046}
+  char5Text: {fileID: 1684735127}
 --- !u!1001 &914411275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7059,7 +7126,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1265247913}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 913440486}
+        m_TargetAssemblyTypeName: Passwords, Assembly-CSharp
+        m_MethodName: ReverseCycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1265247913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7255,7 +7334,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1314803221}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 913440486}
+        m_TargetAssemblyTypeName: Passwords, Assembly-CSharp
+        m_MethodName: Cycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1314803221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8085,7 +8176,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1515879682}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 913440486}
+        m_TargetAssemblyTypeName: Passwords, Assembly-CSharp
+        m_MethodName: ReverseCycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1515879682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10173,7 +10276,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1825514727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 913440486}
+        m_TargetAssemblyTypeName: Passwords, Assembly-CSharp
+        m_MethodName: Cycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1825514727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10397,7 +10512,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1844807857}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 913440486}
+        m_TargetAssemblyTypeName: Passwords, Assembly-CSharp
+        m_MethodName: Cycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1844807857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10583,7 +10710,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1896015639}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 913440486}
+        m_TargetAssemblyTypeName: Passwords, Assembly-CSharp
+        m_MethodName: Cycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1896015639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11397,7 +11536,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2045669825}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 913440486}
+        m_TargetAssemblyTypeName: Passwords, Assembly-CSharp
+        m_MethodName: Cycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2045669825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11518,7 +11669,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2056560272}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 913440486}
+        m_TargetAssemblyTypeName: Passwords, Assembly-CSharp
+        m_MethodName: ReverseCycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2056560272
 MonoBehaviour:
   m_ObjectHideFlags: 0
