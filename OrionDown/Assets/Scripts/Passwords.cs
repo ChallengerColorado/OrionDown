@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Passwords : MonoBehaviour
 {
-    List<char> pos1 = new List<char>{'a','b','c'};
+    public TMP_Text char1Text;
+    public TMP_Text char2Text;
+    public TMP_Text char3Text;
+    public TMP_Text char4Text;
+    public TMP_Text char5Text;
+    List<char> pos1 = new List<char>{'A','B','C'};
 
-    List<char> pos2 = new List<char>{'a','b','c'};
+    List<char> pos2 = new List<char>{'A','B','C'};
 
-    List<char> pos3 = new List<char>{'a','b','c'};
+    List<char> pos3 = new List<char>{'A','B','C'};
 
-    List<char> pos4 = new List<char>{'a','b','c'};
+    List<char> pos4 = new List<char>{'A','B','C'};
 
-    List<char> pos5 = new List<char>{'a','b','c'};
+    List<char> pos5 = new List<char>{'A','B','C'};
 
     int c1 = 0;
     int c2 = 0;
@@ -33,10 +39,20 @@ public class Passwords : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        char1Text.text = "A"; //pos1[c1].ToString();
+        /*char2Text.text = pos2[c2].ToString();
+        char3Text.text = pos3[c3].ToString();
+        char4Text.text = pos4[c4].ToString();
+        char5Text.text = pos5[c5].ToString();*/
+        Debug.Log(pos1[c1].ToString());
+        Debug.Log(c1.ToString())
     }
-    void Cycle(int buttonPressed)
+    public void Cycle(int buttonPressed)
     {
         guess[buttonPressed] += 1;
+    }
+    public void ReverseCycle(int buttonPressed)
+    {
+        guess[buttonPressed] -= 1;
     }
 }
