@@ -8,7 +8,7 @@ public class ModuleBehaviour : MonoBehaviour
     [SerializeField] TMP_Text titleText;
     [SerializeField] TMP_Text statusText;
 
-    bool _status;
+    private bool _status;
     public bool Status {
         get
         {
