@@ -23,7 +23,8 @@ Shader"Custom/Glowing Shader"
         struct Input
         {
             float2 uv_MainTex;
-        };
+            float4 color : COLOR;
+};
 
         half _EmissionStrength;
         half _Glossiness;
@@ -37,10 +38,8 @@ Shader"Custom/Glowing Shader"
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * IN.color;
     
-            //o.Albedo = (0, 0, 0);
             o.Albedo = (0, 0, 0);
             o.Emission = c.rgb * _EmissionStrength;
             o.Smoothness = _Glossiness;
