@@ -45,7 +45,7 @@ public class Passwords : MonoBehaviour
         char4Text.text = pos4[c4].ToString();
         char5Text.text = pos5[c5].ToString();*/
         Debug.Log(pos1[c1].ToString());
-        Debug.Log(c1.ToString())
+        Debug.Log(c1.ToString());
     }
     public void Cycle(int buttonPressed)
     {
