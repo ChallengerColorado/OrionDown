@@ -61,13 +61,11 @@ public class Maze : ModuleBehaviour
         BlinkTile = blinkStartTile;
     }
     public void MazePositioningSystem(move lastmove){
-        Debug.Log('1');
         if (mazepath.Count() == 0){
             mazepath.Add(lastmove);
         }
         else if (mazepath.Last() == oposites[lastmove]){
             mazepath.RemoveAt(mazepath.Count - 1);
-            Debug.Log('2');
         }
         else{
             mazepath.Add(lastmove);
@@ -94,7 +92,6 @@ public class Maze : ModuleBehaviour
         foreach(move i in mazepath){
             moves += i.ToString();
         }
-        Debug.Log(moves);
     }
 
     private float TilePosition(int tileCoord)
