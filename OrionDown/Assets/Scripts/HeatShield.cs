@@ -16,11 +16,37 @@ public class HeatShield : ModuleBehaviour
     private System.Random random = new System.Random();
 
     // Pool of words to choose from
-    private static string[] words = new string[] { };
+    private static string[] words = new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l" };
     // Maps the word read off of a button to the corresponding list of words
-    private static Dictionary<string, string[]> wordLists = new Dictionary<string, string[]>() {};
+    private static Dictionary<string, string[]> wordLists = new Dictionary<string, string[]>() {
+        { "a", new string[] { "f", "h", "j", "l"} },
+        { "b", new string[] { "h", "c", "a", "d"} },
+        { "c", new string[] { "b", "g", "a", "e"} },
+        { "d", new string[] { "i", "f", "e", "j"} },
+        { "e", new string[] { "d", "l", "h", "k"} },
+        { "f", new string[] { "g", "i", "c", "f"} },
+        { "g", new string[] { "l", "j", "f", "a"} },
+        { "h", new string[] { "d", "c", "b", "g"} },
+        { "i", new string[] { "j", "a", "i", "b"} },
+        { "j", new string[] { "e", "f", "k", "c"} },
+        { "k", new string[] { "f", "d", "k", "h"} },
+        { "l", new string[] { "c", "e", "b", "a"} },
+    };
     // Maps the word being displayed to the index of the button to read
-    private static Dictionary<string, int> buttonToRead = new Dictionary<string, int>() {};
+    private static Dictionary<string, int> buttonToRead = new Dictionary<string, int>() {
+        { "a", 4 },
+        { "b", 1 },
+        { "c", 3 },
+        { "d", 5 },
+        { "e", 0 },
+        { "f", 2 },
+        { "g", 3 },
+        { "h", 0 },
+        { "i", 1 },
+        { "j", 4 },
+        { "k", 5 },
+        { "l", 2 },
+    };
 
     private int buttonToPressIndex;
 
@@ -29,10 +55,13 @@ public class HeatShield : ModuleBehaviour
     {
         for (int i = 0; i < buttons.Length; i++)
         {
-            buttons[i].onClick.AddListener(() => ButtonPress(i));
+            // Necessary or the variable i will be captured in closure, so all buttons will get index 6
+            // This copies the value of i at the given iteration, which will not change
+            // See https://stackoverflow.com/questions/3168375/using-the-iterator-variable-of-foreach-loop-in-a-lambda-expression-why-fails
+            int buttonIndex = i; 
+            buttons[i].onClick.AddListener(() => ButtonPress(buttonIndex));
         }
 
-        remainingRounds = 3;
         InitializeRound();
     }
 
@@ -91,9 +120,9 @@ public class HeatShield : ModuleBehaviour
         }
 
         // Get the actual words associated with the indices in shuffledButtonWordIndices and assign them to the buttons
-        for (int i = 0; i < shuffledButtonWordIndices.Length; i++)
+        for (int i = 0; i < 6; i++)
         {
-            buttons[i].GetComponentInChildren<TextMeshPro>().text = words[shuffledButtonWordIndices[i]];
+            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = words[shuffledButtonWordIndices[i]];
         }
 
         // Possible words to display in order to direct the user to read the correct button
@@ -111,6 +140,8 @@ public class HeatShield : ModuleBehaviour
 
     void ButtonPress(int buttonIndex)
     {
+        Debug.Log("Button: " + buttonIndex);
+
         if (buttonIndex == buttonToPressIndex)
         {
             EndRound();
