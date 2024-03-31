@@ -15,9 +15,14 @@ public class HeatShield : ModuleBehaviour
 
     private System.Random random = new System.Random();
 
+    // Pool of words to choose from
     private static string[] words = new string[] { };
+    // Maps the word read off of a button to the corresponding list of words
     private static Dictionary<string, string[]> wordLists = new Dictionary<string, string[]>() {};
+    // Maps the word being displayed to the index of the button to read
     private static Dictionary<string, int> buttonToRead = new Dictionary<string, int>() {};
+
+    private int buttonToPressIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +31,9 @@ public class HeatShield : ModuleBehaviour
         {
             buttons[i].onClick.AddListener(() => ButtonPress(i));
         }
+
+        remainingRounds = 3;
+        InitializeRound();
     }
 
     private void InitializeRound()
@@ -49,10 +57,15 @@ public class HeatShield : ModuleBehaviour
         }
 
         // List to store the indices in words of all of the words to appear on buttons
-        List<int> buttonWordIndices = new List<int>() { wordForListIndex, wordToPressIndex};
+        List<int> buttonWordIndices = new List<int>() { wordForListIndex };
 
-        for (int i = 0; i < 4; i++)
+        if (wordForListIndex != wordToPressIndex)
+            buttonWordIndices.Add(wordToPressIndex);
+
+        // Fill remaining buttons with randomly-chosen words
+        for (int i = buttonWordIndices.Count; i < 6; i++)
         {
+            // Index of next word to add
             int newIndex = random.Next(words.Length - i);
             foreach (int j in buttonWordIndices)
             {
@@ -67,11 +80,14 @@ public class HeatShield : ModuleBehaviour
         // Randomize order of words on buttons
         int[] shuffledButtonWordIndices = new int[6];
 
-        for (int i = 0;i < shuffledButtonWordIndices.Length; i++)
+        for (int i = 0; i < shuffledButtonWordIndices.Length; i++)
         {
             int nextItem = random.Next(buttonWordIndices.Count);
             shuffledButtonWordIndices[i] = buttonWordIndices[nextItem];
             buttonWordIndices.Remove(nextItem);
+
+            if (nextItem == wordToPressIndex)
+                buttonToPressIndex = i;
         }
 
         // Get the actual words associated with the indices in shuffledButtonWordIndices and assign them to the buttons
@@ -79,21 +95,33 @@ public class HeatShield : ModuleBehaviour
         {
             buttons[i].GetComponentInChildren<TextMeshPro>().text = words[shuffledButtonWordIndices[i]];
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        // Possible words to display in order to direct the user to read the correct button
+        List<string> displayCandidates = new List<string>();
 
-    private int ButtonToPress(string word)
-    {
-        
+        foreach (string key in buttonToRead.Keys)
+        {
+            if (buttonToRead[key] == buttonToPressIndex)
+                displayCandidates.Add(key);
+        }
+
+        // Select random candidate
+        givenWordDisplay.text = displayCandidates[random.Next(displayCandidates.Count)];
     }
 
     void ButtonPress(int buttonIndex)
     {
-        //
+        if (buttonIndex == buttonToPressIndex)
+        {
+            EndRound();
+        }
+    }
+
+   private void EndRound()
+    {
+        if (--remainingRounds == 0)
+            Status = true;
+        else
+            InitializeRound();
     }
 }
