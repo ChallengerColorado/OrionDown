@@ -37,9 +37,7 @@ public class Passwords : MonoBehaviour
     guess.Add(c5);
     }
     // Update is called once per frame
-    void Update()
-    {
-        char1Text.text = "A"; //pos1[c1].ToString();
+    void Update(){
         /*char2Text.text = pos2[c2].ToString();
         char3Text.text = pos3[c3].ToString();
         char4Text.text = pos4[c4].ToString();
@@ -50,9 +48,24 @@ public class Passwords : MonoBehaviour
     public void Cycle(int buttonPressed)
     {
         guess[buttonPressed] += 1;
+        char1Text.text = pos1[c1].ToString();
+        char2Text.text = pos2[c2].ToString();
+        char3Text.text = pos3[c3].ToString();
+        char4Text.text = pos4[c4].ToString();
+        char5Text.text = pos5[c5].ToString();
+
     }
     public void ReverseCycle(int buttonPressed)
     {
-        guess[buttonPressed] -= 1;
+        int newguess = guess[buttonPressed];
+        newguess += 1;
+        guess.RemoveAt(buttonPressed);
+        guess.Insert(buttonPressed, newguess);
+        char1Text.text = pos1[c1].ToString();
+        char2Text.text = pos2[c2].ToString();
+        char3Text.text = pos3[c3].ToString();
+        char4Text.text = pos4[c4].ToString();
+        char5Text.text = pos5[c5].ToString();
+
     }
 }
