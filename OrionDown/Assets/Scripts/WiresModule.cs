@@ -15,7 +15,7 @@ public class WiresModule : ModuleBehaviour
         new int[] {4,5,0,3,0,6,0},
         new int[] {4,5,0,3,0,6,0},
         new int[] {5,5,0,3,0,6,0},
-        new int[] {5,5,0,3,0,6,0},
+        new int[] {5,5,0,3,0,6,0}, 
         new int[] {5,5,0,3,0,6,0},
         new int[] {6,5,0,3,0,6,0},
         new int[] {6,5,0,3,0,6,0},
