@@ -62,6 +62,7 @@ public class HeatShield : ModuleBehaviour
             // See https://stackoverflow.com/questions/3168375/using-the-iterator-variable-of-foreach-loop-in-a-lambda-expression-why-fails
             int buttonIndex = i; 
             buttons[i].onClick.AddListener(() => ButtonPress(buttonIndex));
+            buttons[i].GetComponentInChildren<TextMeshProUGUI>().fontSize = 48;
         }
 
         InitializeRound();
