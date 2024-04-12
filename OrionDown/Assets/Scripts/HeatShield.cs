@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -72,7 +74,8 @@ public class HeatShield : ModuleBehaviour
         string wordForList = words[wordForListIndex];
 
         // The word appearing on the button that the user must press
-        string wordToPress = wordLists[wordForList][random.Next(wordLists[wordForList].Length)];
+        string[] list = wordLists[wordForList];
+        string wordToPress = list[random.Next(wordLists[wordForList].Length)];
         int wordToPressIndex = 0;
 
         // Find index of wordToPress in words
@@ -111,19 +114,29 @@ public class HeatShield : ModuleBehaviour
 
         for (int i = 0; i < shuffledButtonWordIndices.Length; i++)
         {
-            int nextItem = random.Next(buttonWordIndices.Count);
-            shuffledButtonWordIndices[i] = buttonWordIndices[nextItem];
-            buttonWordIndices.Remove(nextItem);
-
-            if (nextItem == wordToPressIndex)
-                buttonToPressIndex = i;
+            int nextItemIndex = random.Next(buttonWordIndices.Count);
+            shuffledButtonWordIndices[i] = buttonWordIndices[nextItemIndex];
+            buttonWordIndices.RemoveAt(nextItemIndex);
         }
+
+        //foreach (var i in shuffledButtonWordIndices) Debug.Log(i);
 
         // Get the actual words associated with the indices in shuffledButtonWordIndices and assign them to the buttons
         for (int i = 0; i < 6; i++)
         {
             buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = words[shuffledButtonWordIndices[i]];
         }
+
+        for (int i = 0; i < 6; i++)
+        {
+            if (list.Contains(buttons[i].GetComponentInChildren<TextMeshProUGUI>().text))
+            {
+                buttonToPressIndex = i;
+                break;
+            }
+        }
+
+        Debug.Log("Target button: " + buttonToPressIndex);
 
         // Possible words to display in order to direct the user to read the correct button
         List<string> displayCandidates = new List<string>();
