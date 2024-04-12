@@ -89,34 +89,36 @@ public class HeatShield : ModuleBehaviour
         }
 
         // List to store the indices in words of all of the words to appear on buttons
-        List<int> buttonWordIndices = new List<int>() { wordForListIndex };
+        SortedSet<int> buttonWordIndexSet = new SortedSet<int>() { wordForListIndex };
 
         if (wordForListIndex != wordToPressIndex)
-            buttonWordIndices.Add(wordToPressIndex);
+            buttonWordIndexSet.Add(wordToPressIndex);
 
         // Fill remaining buttons with randomly-chosen words
-        for (int i = buttonWordIndices.Count; i < 6; i++)
+        for (int i = buttonWordIndexSet.Count; i < 6; i++)
         {
             // Index of next word to add
             int newIndex = random.Next(words.Length - i);
-            foreach (int j in buttonWordIndices)
+            foreach (int j in buttonWordIndexSet)
             {
                 // Skip over already-chosen words
                 if (newIndex >= j)
                     newIndex++;
             }
 
-            buttonWordIndices.Add(newIndex);
+            buttonWordIndexSet.Add(newIndex);
         }
+
+        List<int> buttonWordIndexList = buttonWordIndexSet.ToList();
 
         // Randomize order of words on buttons
         int[] shuffledButtonWordIndices = new int[6];
 
         for (int i = 0; i < shuffledButtonWordIndices.Length; i++)
         {
-            int nextItemIndex = random.Next(buttonWordIndices.Count);
-            shuffledButtonWordIndices[i] = buttonWordIndices[nextItemIndex];
-            buttonWordIndices.RemoveAt(nextItemIndex);
+            int nextItemIndex = random.Next(buttonWordIndexList.Count);
+            shuffledButtonWordIndices[i] = buttonWordIndexList[nextItemIndex];
+            buttonWordIndexList.RemoveAt(nextItemIndex);
         }
 
         //foreach (var i in shuffledButtonWordIndices) Debug.Log(i);
