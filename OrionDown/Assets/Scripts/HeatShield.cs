@@ -160,15 +160,13 @@ public class HeatShield : ModuleBehaviour
 
         if (buttonIndex == buttonToPressIndex)
         {
-            EndRound();
+            if (--remainingRounds == 0)
+            {
+                Status = true;
+                return;
+            }
         }
-    }
 
-   private void EndRound()
-    {
-        if (--remainingRounds == 0)
-            Status = true;
-        else
-            InitializeRound();
+        InitializeRound();
     }
 }
