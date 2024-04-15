@@ -4484,7 +4484,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 734a331d98a5b594a94b2addac11940f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 56e39f50d0f520943ab5052882e022e1, type: 2}
+      objectReference: {fileID: 2100000, guid: 8c348d3d632e2cf4eb0977e371c59dbb, type: 2}
     - target: {fileID: 919132149155446097, guid: 734a331d98a5b594a94b2addac11940f, type: 3}
       propertyPath: m_Name
       value: Twisted_2
@@ -10407,7 +10407,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: a9fb0e6a0abc4bb4e8dc43e773697ec9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 56e39f50d0f520943ab5052882e022e1, type: 2}
+      objectReference: {fileID: 2100000, guid: 2227608b521d3ea4f878be17e1682145, type: 2}
     - target: {fileID: 919132149155446097, guid: a9fb0e6a0abc4bb4e8dc43e773697ec9, type: 3}
       propertyPath: m_Name
       value: Smooth_1
