@@ -11,6 +11,16 @@ public class TransitionButtonBehavior : MonoBehaviour
         GameManager.Instance.StopGame(false);
     }
 
+    public void Pause()
+    {
+        GameManager.Instance.PauseGame();
+    }
+
+    public void Unpause()
+    {
+        GameManager.Instance.UnpauseGame();
+    }
+
     public void GoToEnd()
     {
         GameManager.Instance.StopGame(true);

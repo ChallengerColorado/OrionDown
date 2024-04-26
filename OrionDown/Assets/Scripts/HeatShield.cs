@@ -73,10 +73,11 @@ public class HeatShield : ModuleBehaviour
         // The word appearing on the button that the user must read
         int wordForListIndex = random.Next(words.Length);
         string wordForList = words[wordForListIndex];
+        Debug.Log(wordForList);
 
         // The word appearing on the button that the user must press
         string[] list = wordLists[wordForList];
-        string wordToPress = list[random.Next(wordLists[wordForList].Length)];
+        string wordToPress = list[random.Next(list.Length)];
         int wordToPressIndex = 0;
 
         // Find index of wordToPress in words
@@ -129,24 +130,35 @@ public class HeatShield : ModuleBehaviour
         {
             buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = words[shuffledButtonWordIndices[i]];
         }
-
-        for (int i = 0; i < 6; i++)
+        bool finished = false;
+        for (int i = 0; i < list.Length && !finished; i++)
         {
-            if (list.Contains(buttons[i].GetComponentInChildren<TextMeshProUGUI>().text))
-            {
-                buttonToPressIndex = i;
-                break;
+            for (int j = 0; j < 6 && !finished; j++){
+                if (list[i] == (buttons[j].GetComponentInChildren<TextMeshProUGUI>().text))
+                {
+                    buttonToPressIndex = j;
+                    finished = true;
+                }
             }
         }
 
         Debug.Log("Target button: " + buttonToPressIndex);
 
+        // Button to be read
+        int buttonToReadIndex = 0;
+        for (int i = 0; i < 6; i++){
+                if (wordForList == (buttons[i].GetComponentInChildren<TextMeshProUGUI>().text))
+                {
+                    buttonToReadIndex = i;
+                    break;
+                }
+        }
         // Possible words to display in order to direct the user to read the correct button
         List<string> displayCandidates = new List<string>();
 
         foreach (string key in buttonToRead.Keys)
         {
-            if (buttonToRead[key] == buttonToPressIndex)
+            if (buttonToRead[key] == buttonToReadIndex)
                 displayCandidates.Add(key);
         }
 
