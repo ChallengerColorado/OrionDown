@@ -23,10 +23,12 @@ public sealed class Timer
 
     private IEnumerator RunCoroutine()
     {
-        while (RemainingSeconds > 0 && !paused)
+        while (RemainingSeconds > 0)
         {
+            if (!paused) {
             yield return new WaitForSeconds(1);
             RemainingSeconds--;
+            }
         }
     }
 
