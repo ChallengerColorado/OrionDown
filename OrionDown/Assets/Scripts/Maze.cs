@@ -5,6 +5,8 @@ using System.Linq;
 using UnityEngine.UI;
 using System;
 using TMPro;
+using System.Collections.Specialized;
+using UnityEditorInternal;
 
 public class Maze : ModuleBehaviour
 {
@@ -108,7 +110,7 @@ public class Maze : ModuleBehaviour
         blink.gameObject.SetActive(true);
         yield return new WaitForSeconds(blinkDuration);
 
-        foreach (var movePair in mazepath.Zip(mazeSolution, Tuple.Create))
+        foreach (var movePair in ZipPaths(mazepath, mazeSolution))
         {
             blink.gameObject.SetActive(false);
             yield return new WaitForSeconds(blinkDuration);
@@ -121,7 +123,7 @@ public class Maze : ModuleBehaviour
                 yield break;
             }
 
-            MoveBlink(movePair.Item1);
+            MoveBlink(movePair.Item1.Value);
             blink.gameObject.SetActive(true);
             yield return new WaitForSeconds(blinkDuration);
         }
@@ -167,4 +169,26 @@ public class Maze : ModuleBehaviour
         }
     }
 
+    private IEnumerable<Tuple<move?, move?>> ZipPaths(IEnumerable<move> first, IEnumerable<move> second)
+    {
+        IEnumerator firstEnumerator = first.GetEnumerator();
+        IEnumerator secondEnumerator = second.GetEnumerator();
+
+        List<Tuple<move?,move?>> list = new List<Tuple<move?, move?>>();
+
+        //Debug.Log("first: " + firstEnumerator);   
+
+        bool firstNext = firstEnumerator.MoveNext();
+        bool secondNext = secondEnumerator.MoveNext();
+
+        while (firstNext || secondNext)
+        {
+            list.Add(Tuple.Create<move?, move?>((firstNext ? (move) firstEnumerator.Current : null), (secondNext ? (move) secondEnumerator.Current : null)));
+
+            firstNext = firstEnumerator.MoveNext();
+            secondNext = secondEnumerator.MoveNext();
+        }
+
+        return (IEnumerable<Tuple<move?, move?>>) list;
+    }
 }

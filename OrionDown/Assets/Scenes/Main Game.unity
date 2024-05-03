@@ -5225,7 +5225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: {fileID: 0}
-  statusText: {fileID: 0}
+  statusText: {fileID: 1473597893}
   mapBackground: {fileID: 44625940}
   blink: {fileID: 239536372}
   invalidText: {fileID: 1562834296}
