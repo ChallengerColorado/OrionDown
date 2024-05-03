@@ -16,6 +16,10 @@ public class WiresModule : ModuleBehaviour
 
     private Dictionary<WireColor, Material> colorMaterials;
 
+    private List<int> buttonToWire = new List<int>();
+
+    
+
     //dificulty system
     /*private int[][] wireConfig = new int[][]{
         new int[] {0,3,0,3,0,6,0},
@@ -23,27 +27,41 @@ public class WiresModule : ModuleBehaviour
         new int[] {4,5,0,3,0,6,0},
         new int[] {4,5,0,3,0,6,0},
         new int[] {5,5,0,3,0,6,0},
-        new int[] {5,5,0,3,0,6,0}, 
+        new int[] {5,5,0,3,0,6,0},
         new int[] {5,5,0,3,0,6,0},
         new int[] {6,5,0,3,0,6,0},
         new int[] {6,5,0,3,0,6,0},
         new int[] {6,5,0,3,0,6,0}
     };*/
 
-
+    private int wireConfigIndex;
     private static WireSpec[][] wireConfig = new WireSpec[][]
     {
-        new WireSpec[] { new WireSpec(WireColor.Blue, WireColor.Black, 0, true), null, null, null, new WireSpec(WireColor.Red, WireColor.Red, 2, false), null, null, null }
+        new WireSpec[] { new WireSpec(WireColor.Blue, WireColor.Black, 0, true), null, null, null, new WireSpec(WireColor.Red, WireColor.Red, 2, false), null, null, null },
+        new WireSpec[] { null, null, null, null, new WireSpec(WireColor.Blue, WireColor.Blue, 1, false), null, null, new WireSpec(WireColor.White, WireColor.Black, 0, true) },
+        new WireSpec[] { null, new WireSpec(WireColor.Black, WireColor.Black, 1, true), null, null, null, null, null, new WireSpec(WireColor.Red, WireColor.Black, 2, false) },
+        new WireSpec[] { null, null, new WireSpec(WireColor.White, WireColor.Blue, 2, false), new WireSpec(WireColor.Red, WireColor.Blue, 1, true), null, null, null, null },
+        new WireSpec[] { null, new WireSpec(WireColor.White, WireColor.White, 0, true), null, new WireSpec(WireColor.Black, WireColor.Red, 2, true), null, null, null, null },
+        new WireSpec[] { new WireSpec(WireColor.Blue, WireColor.Black, 0, true), null, null, new WireSpec(WireColor.White, WireColor.Red, 2, true), null, null, null, null }
     };
-
+    private static bool[][] solutions = new bool[][]
+    {
+        new bool[] {false, false},
+        new bool[] {false, false},
+        new bool[] {false, false},
+        new bool[] {false, false},
+        new bool[] {false, false},
+        new bool[] {false, false}
+    };
+    private bool[] solution = new bool[6];
     private WireSpec[] layout;
 
-    private List<bool> solution = new List<bool>();
     private List<Wire> wires = new List<Wire>();
 
     // Start is called before the first frame update
     void Start()
     {
+        
 
         topSockets = new Transform[]
         {
@@ -89,26 +107,29 @@ public class WiresModule : ModuleBehaviour
 
         if (topSockets.Length != 8)
             throw new ArgumentException("topSockets must be of length 8.");
-
-        layout = wireConfig[new System.Random().Next(wireConfig.Length)];
+        wireConfigIndex = new System.Random().Next(wireConfig.Length);
+        layout = wireConfig[wireConfigIndex];
+        solution = solutions[wireConfigIndex];
         InitializeWires();
     }
 
     public void ToggleWire(int position)
     {
-        wires[position].status = !wires[position].status;
-        CheckWires();
+        if(buttonToWire.Contains(position)){
+        wires[buttonToWire.IndexOf(position)].status = !wires[buttonToWire.IndexOf(position)].status;
+        Debug.Log("Wire Status" + buttonToWire.IndexOf(position) + wires[buttonToWire.IndexOf(position)].status);;
+        CheckWires();}
     }
 
     private void CheckWires()
     {
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 2; i++)
         {
             if (wires[i].status != solution[i])
                 return;
         }
 
-        Status = true;
+        Debug.Log("Hooray");
 
     }
 
@@ -116,8 +137,10 @@ public class WiresModule : ModuleBehaviour
         Debug.Log("Initializing wires...");
 
         for (int i = 0; i < layout.Length; i++) {
-            if (layout[i] != null)
+            if (layout[i] != null){
                 wires.Add(new Wire(layout[i], topSockets[i], this));
+                buttonToWire.Add(i);
+            }
         }
     }
 
