@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public sealed class GameManager : MonoBehaviour
 {
+    private static System.Random random = new System.Random();
+    private GameObject[] modulePrefabs;
 
     private static GameManager _instance;
     public static GameManager Instance {
@@ -39,6 +41,14 @@ public sealed class GameManager : MonoBehaviour
         }
         _instance = this;
         DontDestroyOnLoad(gameObject);
+
+        modulePrefabs = new GameObject[]
+        {
+            Resources.Load<GameObject>("Modules/Wires"),
+            Resources.Load<GameObject>("Modules/Maze"),
+            Resources.Load<GameObject>("Modules/Passwords"),
+            Resources.Load<GameObject>("Modules/Heat Shield")
+        };
     }
 
     public void StartGame(Difficulty difficulty)
@@ -46,6 +56,8 @@ public sealed class GameManager : MonoBehaviour
         Debug.Log("Start with difficulty: " + difficulty.ToString());
 
         SceneManager.LoadScene(1);
+
+        CreateModules(4);
 
         GameTimer = new Timer(300);
         StartCoroutine(GameTimer.Run);
@@ -69,4 +81,33 @@ public sealed class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(finished ? 2 : 0);
     }
 
+    private void CreateModules(int number)
+    {
+        List<Transform> presetPositions = GetPresetModulePositions();
+        List<Transform> chosenPositions = new List<Transform>();
+
+        for (int i = 0; i < number; i++)
+        {
+            int newIndex = random.Next(presetPositions.Count);
+            chosenPositions.Add(presetPositions[newIndex]);
+            presetPositions.RemoveAt(newIndex);
+        }
+
+        foreach (Transform t in chosenPositions)
+        {
+            Instantiate(modulePrefabs[random.Next(modulePrefabs.Length)]);
+        }
+    }
+
+    private List<Transform> GetPresetModulePositions()
+    {
+        List<Transform> positions = new List<Transform>();
+
+        for (int i = 1; i < 11; i++)
+        {
+            positions.Add(GameObject.Find("Module Position " + i).transform);
+        }
+
+        return positions;
+    }
 }
