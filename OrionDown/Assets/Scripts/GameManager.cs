@@ -53,13 +53,13 @@ public sealed class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        // GameTimer.SetPaused(true);
+        GameTimer.SetPaused(true);
         SceneManager.LoadSceneAsync(3);
     }
 
     public void UnpauseGame()
     {
-        // GameTimer.SetPaused(false);
+        GameTimer.SetPaused(false);
         SceneManager.LoadSceneAsync(1);
     }
 

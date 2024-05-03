@@ -20,7 +20,7 @@ public class Passwords : MonoBehaviour
         new char[6]
     };
 
-    private static char[] alphabet = new char[] {'a','b','c','d','e','h','i','j','k','l','n','q','r','s','t','u','v','y','z'};
+    private static char[] alphabet = new char[] {'a','b','c','d','e','h','i','j','k','l','n','q','r','s','t','u','v','w','y','z'};
     private static string[] words = {
         "orion",
         "orbit",
@@ -29,7 +29,7 @@ public class Passwords : MonoBehaviour
         "admin",
         "about",
         "after",
-        "agian",
+        "again",
         "below",
         "right" 
     };

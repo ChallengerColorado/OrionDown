@@ -26,9 +26,9 @@ public sealed class Timer
         while (RemainingSeconds > 0)
         {
             if (!paused) {
-            yield return new WaitForSeconds(1);
             RemainingSeconds--;
             }
+            yield return new WaitForSeconds(1);
         }
     }
 
