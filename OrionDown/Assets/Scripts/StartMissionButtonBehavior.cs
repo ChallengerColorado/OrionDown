@@ -16,7 +16,9 @@ public class StartMission : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.StartGame(GameManager.Difficulty.Easy);
+            GameManager.Instance.StartGame(codeInputField.text);
         }
     }
+
+
 }

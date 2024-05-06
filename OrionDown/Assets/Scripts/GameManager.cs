@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,6 +29,13 @@ public sealed class GameManager : MonoBehaviour
         Difficult
     }
 
+    private static Dictionary<string, Difficulty> CodeToDifficulty = new Dictionary<string, Difficulty>()
+    {
+        { "1", Difficulty.Easy },
+        { "2", Difficulty.Medium },
+        { "3", Difficulty.Difficult }
+    };
+
     public Timer GameTimer { get; private set; }
 
     void Awake()
@@ -40,9 +48,10 @@ public sealed class GameManager : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    public void StartGame(Difficulty difficulty)
+    public void StartGame(string code)
     {
+        Difficulty difficulty = CodeToDifficulty[code];
+
         Debug.Log("Start with difficulty: " + difficulty.ToString());
 
         SceneManager.LoadScene(1);
