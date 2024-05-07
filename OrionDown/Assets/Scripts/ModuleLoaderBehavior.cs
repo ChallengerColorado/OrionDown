@@ -28,6 +28,7 @@ public class ModuleLoaderBehavior : MonoBehaviour
 
     private void CreateModules(int number)
     {
+        Debug.Log("CreateModules");
         List<Transform> availablePositions = new List<Transform>(presetModulePositions);
         List<Transform> chosenPositions = new List<Transform>();
 
@@ -40,7 +41,7 @@ public class ModuleLoaderBehavior : MonoBehaviour
 
         foreach (Transform t in chosenPositions)
         {
-            Instantiate(modulePrefabs[random.Next(modulePrefabs.Length)]);
+            Instantiate(modulePrefabs[random.Next(modulePrefabs.Length)], t);
         }
     }
 }
