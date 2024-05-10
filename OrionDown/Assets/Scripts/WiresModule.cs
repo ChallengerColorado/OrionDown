@@ -8,11 +8,10 @@ using UnityEngine;
 
 public class WiresModule : ModuleBehaviour
 {
-    public Transform[] topSockets;
+    private Transform[] topSockets;
 
-    public GameObject[] smoothWirePrefabs;
-    
-    public GameObject[] twistedWirePrefabs;
+    private GameObject[] smoothWirePrefabs;
+    private GameObject[] twistedWirePrefabs;
 
     private Dictionary<WireColor, Material> colorMaterials;
 
@@ -65,14 +64,14 @@ public class WiresModule : ModuleBehaviour
 
         topSockets = new Transform[]
         {
-            transform.Find("default/Top_Socket_0"),
-            transform.Find("default/Top_Socket_1"),
-            transform.Find("default/Top_Socket_2"),
-            transform.Find("default/Top_Socket_3"),
-            transform.Find("default/Top_Socket_4"),
-            transform.Find("default/Top_Socket_5"),
-            transform.Find("default/Top_Socket_6"),
-            transform.Find("default/Top_Socket_7")
+            transform.Find("Module Base/Top_Socket_0"),
+            transform.Find("Module Base/Top_Socket_1"),
+            transform.Find("Module Base/Top_Socket_2"),
+            transform.Find("Module Base/Top_Socket_3"),
+            transform.Find("Module Base/Top_Socket_4"),
+            transform.Find("Module Base/Top_Socket_5"),
+            transform.Find("Module Base/Top_Socket_6"),
+            transform.Find("Module Base/Top_Socket_7")
         };
 
         Debug.Log(topSockets);
