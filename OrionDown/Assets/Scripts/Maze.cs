@@ -43,26 +43,26 @@ public class Maze : ModuleBehaviour
     private float resetTextDuration = 1.5f;
 
 
-    public enum move{
+    public enum Move{
         Left,
         Up,
         Down,
         Right
     }
-    List<move> mazepath = new List<move>();
-    List<move> mazeSolution = new List<move>() {move.Left, move.Up, move.Left, move.Down, move.Right};
-    Dictionary<move, move> oposites = new Dictionary<move, move>(){
-                                {move.Left, move.Right},
-                                {move.Up, move.Down},
-                                {move.Down, move.Up},
-                                {move.Right, move.Left} };
+    List<Move> mazepath = new List<Move>();
+    List<Move> mazeSolution = new List<Move>() {Move.Left, Move.Up, Move.Left, Move.Down, Move.Right};
+    Dictionary<Move, Move> oposites = new Dictionary<Move, Move>(){
+                                {Move.Left, Move.Right},
+                                {Move.Up, Move.Down},
+                                {Move.Down, Move.Up},
+                                {Move.Right, Move.Left} };
     
     // Start is called before the first frame update
     void Start()
     {
         BlinkTile = blinkStartTile;
     }
-    public void MazePositioningSystem(move lastmove){
+    public void MazePositioningSystem(Move lastmove){
         if (mazepath.Count() == 0){
             mazepath.Add(lastmove);
         }
@@ -91,7 +91,7 @@ public class Maze : ModuleBehaviour
     void Update()
     {
         string moves = "";
-        foreach(move i in mazepath){
+        foreach(Move i in mazepath){
             moves += i.ToString();
         }
     }
@@ -117,7 +117,7 @@ public class Maze : ModuleBehaviour
 
             if (movePair.Item1 != movePair.Item2)
             {
-                mazepath = new List<move>();
+                mazepath = new List<Move>();
                 BlinkTile = blinkStartTile;
                 StartCoroutine(DisplayInvalidMessage());
                 yield break;
@@ -148,20 +148,20 @@ public class Maze : ModuleBehaviour
         resetText.gameObject.SetActive(false);
     }
 
-    private void MoveBlink(move m)
+    private void MoveBlink(Move m)
     {
         switch (m)
         {
-            case move.Left:
+            case Move.Left:
                 BlinkTile = (BlinkTile.Item1 - 1, BlinkTile.Item2);
                 return;
-            case move.Up:
+            case Move.Up:
                 BlinkTile = (BlinkTile.Item1, BlinkTile.Item2 + 1);
                 return;
-            case move.Down:
+            case Move.Down:
                 BlinkTile = (BlinkTile.Item1, BlinkTile.Item2 - 1);
                 return;
-            case move.Right:
+            case Move.Right:
                 BlinkTile = (BlinkTile.Item1 + 1, BlinkTile.Item2);
                 return;
             default:
@@ -169,12 +169,12 @@ public class Maze : ModuleBehaviour
         }
     }
 
-    private IEnumerable<Tuple<move?, move?>> ZipPaths(IEnumerable<move> first, IEnumerable<move> second)
+    private IEnumerable<Tuple<Move?, Move?>> ZipPaths(IEnumerable<Move> first, IEnumerable<Move> second)
     {
         IEnumerator firstEnumerator = first.GetEnumerator();
         IEnumerator secondEnumerator = second.GetEnumerator();
 
-        List<Tuple<move?,move?>> list = new List<Tuple<move?, move?>>();
+        List<Tuple<Move?,Move?>> list = new List<Tuple<Move?, Move?>>();
 
         //Debug.Log("first: " + firstEnumerator);   
 
@@ -183,12 +183,12 @@ public class Maze : ModuleBehaviour
 
         while (firstNext || secondNext)
         {
-            list.Add(Tuple.Create<move?, move?>((firstNext ? (move) firstEnumerator.Current : null), (secondNext ? (move) secondEnumerator.Current : null)));
+            list.Add(Tuple.Create<Move?, Move?>((firstNext ? (Move) firstEnumerator.Current : null), (secondNext ? (Move) secondEnumerator.Current : null)));
 
             firstNext = firstEnumerator.MoveNext();
             secondNext = secondEnumerator.MoveNext();
         }
 
-        return (IEnumerable<Tuple<move?, move?>>) list;
+        return (IEnumerable<Tuple<Move?, Move?>>) list;
     }
 }

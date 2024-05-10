@@ -8,7 +8,7 @@ public class MazeButton : MonoBehaviour
     [SerializeField] private GameObject m_maze;
 
     private Maze m_mazescript;
-    [SerializeField] private Maze.move lastmove;
+    [SerializeField] private Maze.Move lastmove;
     // Start is called before the first frame update
     void Start()
     {
