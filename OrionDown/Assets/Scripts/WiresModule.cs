@@ -33,26 +33,95 @@ public class WiresModule : ModuleBehaviour
         new int[] {6,5,0,3,0,6,0}
     };*/
 
-    private int wireConfigIndex;
-    private static WireSpec[][] wireConfig = new WireSpec[][]
+    private static Dictionary<GameManager.Difficulty, (WireSpec[], bool[])[]> wireConfig = new Dictionary<GameManager.Difficulty, (WireSpec[], bool[])[]>()
     {
-        new WireSpec[] { new WireSpec(WireColor.Blue, WireColor.Black, 0, true), null, null, null, new WireSpec(WireColor.Red, WireColor.Red, 2, false), null, null, null },
-        new WireSpec[] { null, null, null, null, new WireSpec(WireColor.Blue, WireColor.Blue, 1, false), null, null, new WireSpec(WireColor.White, WireColor.Black, 0, true) },
-        new WireSpec[] { null, new WireSpec(WireColor.Black, WireColor.Black, 1, true), null, null, null, null, null, new WireSpec(WireColor.Red, WireColor.Black, 2, false) },
-        new WireSpec[] { null, null, new WireSpec(WireColor.White, WireColor.Blue, 2, false), new WireSpec(WireColor.Red, WireColor.Blue, 1, true), null, null, null, null },
-        new WireSpec[] { null, new WireSpec(WireColor.White, WireColor.White, 0, true), null, new WireSpec(WireColor.Black, WireColor.Red, 2, true), null, null, null, null },
-        new WireSpec[] { new WireSpec(WireColor.Blue, WireColor.Black, 0, true), null, null, new WireSpec(WireColor.White, WireColor.Red, 2, true), null, null, null, null }
+        {  GameManager.Difficulty.Easy, new (WireSpec[], bool[])[]
+            {
+                (new WireSpec[]
+                    {
+                        new WireSpec(WireColor.Blue, WireColor.Black, 0, true),
+                        null,
+                        null,
+                        null,
+                        new WireSpec(WireColor.Red, WireColor.Red, 2, false),
+                        null,
+                        null,
+                        null
+                    },
+                 new bool[] { false, false }),
+                (new WireSpec[] 
+                    {
+                        null,
+                        null,
+                        null,
+                        null,
+                        new WireSpec(WireColor.Blue, WireColor.Blue, 1, false),
+                        null,
+                        null,
+                        new WireSpec(WireColor.White, WireColor.Black, 0, true)
+                    },
+                 new bool[] { false, false })
+            }
+        },
+        {  GameManager.Difficulty.Medium, new (WireSpec[], bool[])[]
+            {
+                (new WireSpec[]
+                    {
+                        null,
+                        new WireSpec(WireColor.Black, WireColor.Black, 1, true),
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        new WireSpec(WireColor.Red, WireColor.Black, 2, false)
+                    },
+                 new bool[] { false, false }),
+                (new WireSpec[]
+                    {
+                        null,
+                        null,
+                        new WireSpec(WireColor.White, WireColor.Blue, 2, false),
+                        new WireSpec(WireColor.Red, WireColor.Blue, 1, true),
+                        null,
+                        null,
+                        null,
+                        null
+                    },
+                 new bool[] { false, false })
+            }
+        },
+        {  GameManager.Difficulty.Difficult, new (WireSpec[], bool[])[]
+            {
+                (new WireSpec[]
+                    {
+                        null,
+                        new WireSpec(WireColor.White, WireColor.White, 0, true),
+                        null,
+                        new WireSpec(WireColor.Black, WireColor.Red, 2, true),
+                        null,
+                        null,
+                        null,
+                        null
+                    },
+                 new bool[] { false, false }),
+                (new WireSpec[]
+                    {
+                        new WireSpec(WireColor.Blue, WireColor.Black, 0, true),
+                        null,
+                        null,
+                        new WireSpec(WireColor.White, WireColor.Red, 2, true),
+                        null,
+                        null,
+                        null,
+                        null
+                    },
+                 new bool[] { false, false })
+            }
+        }
     };
-    private static bool[][] solutions = new bool[][]
-    {
-        new bool[] {false, false},
-        new bool[] {false, false},
-        new bool[] {false, false},
-        new bool[] {false, false},
-        new bool[] {false, false},
-        new bool[] {false, false}
-    };
-    private bool[] solution = new bool[6];
+
+    private bool[] solution;
     private WireSpec[] layout;
 
     private List<Wire> wires = new List<Wire>();
@@ -106,9 +175,12 @@ public class WiresModule : ModuleBehaviour
 
         if (topSockets.Length != 8)
             throw new ArgumentException("topSockets must be of length 8.");
-        wireConfigIndex = new System.Random().Next(wireConfig.Length);
-        layout = wireConfig[wireConfigIndex];
-        solution = solutions[wireConfigIndex];
+
+        (WireSpec[], bool[])[] possiblePresets = wireConfig[GameManager.Instance.currentDifficulty];
+        (WireSpec[], bool[]) chosenPreset = possiblePresets[new System.Random().Next(possiblePresets.Length)];
+        layout = chosenPreset.Item1;
+        solution = chosenPreset.Item2;
+
         InitializeWires();
     }
 
