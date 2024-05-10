@@ -29,6 +29,8 @@ public sealed class GameManager : MonoBehaviour
         Difficult
     }
 
+    public Difficulty currentDifficulty;
+
     public Timer GameTimer { get; private set; }
 
     void Awake()
@@ -44,6 +46,8 @@ public sealed class GameManager : MonoBehaviour
     public void StartGame(Difficulty difficulty)
     {
         Debug.Log("Start with difficulty: " + difficulty.ToString());
+
+        currentDifficulty = difficulty;
 
         SceneManager.LoadScene(1);
 

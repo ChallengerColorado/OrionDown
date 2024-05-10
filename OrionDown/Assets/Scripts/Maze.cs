@@ -38,10 +38,11 @@ public class Maze : ModuleBehaviour
     private const float ImageSpaceSize = (ImageMapSize - TileNumber * ImageTileSize) / (float) (TileNumber + 1);
 
 
-    private float invalidTextBlinkDuration = .5f;
-    private int invalidTextBlinkNumber = 3;
-    private float resetTextDuration = 1.5f;
+    private const float invalidTextBlinkDuration = .5f;
+    private const int invalidTextBlinkNumber = 3;
+    private const float resetTextDuration = 1.5f;
 
+    private System.Random random = new System.Random();
 
     public enum Move{
         Left,
@@ -49,9 +50,29 @@ public class Maze : ModuleBehaviour
         Down,
         Right
     }
-    List<Move> mazepath = new List<Move>();
-    List<Move> mazeSolution = new List<Move>() {Move.Left, Move.Up, Move.Left, Move.Down, Move.Right};
-    Dictionary<Move, Move> oposites = new Dictionary<Move, Move>(){
+
+    private Dictionary<GameManager.Difficulty, List<(List<Move>, (int, int))>> presetPaths = new Dictionary<GameManager.Difficulty, List<(List<Move>, (int, int))>> ()
+    {
+        { GameManager.Difficulty.Easy, new List<(List<Move>, (int, int))> () // all paths for the easy mode
+            {
+                ( new List<Move>() { Move.Left, Move.Up, Move.Left, Move.Down}, (1, 1)), // each possible path as a (Moves, startPosition) tuple
+                (new List<Move>() { Move.Up, Move.Up, Move.Left, Move.Down}, (1, 1))
+            } },
+        { GameManager.Difficulty.Medium, new List<(List<Move>, (int, int))> ()
+            {
+                ( new List<Move>() { Move.Right, Move.Up, Move.Up, Move.Right, Move.Down, Move.Right }, (1, 1)),
+                ( new List<Move>() { Move.Down, Move.Left, Move.Down, Move.Left, Move.Up, Move.Up }, (1, 1))
+            } },
+        { GameManager.Difficulty.Difficult, new List<(List<Move>, (int, int))> ()
+            {
+                ( new List<Move>() { Move.Up, Move.Right, Move.Right, Move.Down, Move.Right, Move.Down, Move.Left, Move.Left }, (1, 1)),
+                ( new List<Move>() { Move.Up, Move.Right, Move.Right, Move.Down, Move.Right, Move.Down, Move.Left, Move.Left }, (1, 1))
+            } }
+    };
+
+    private List<Move> mazepath = new List<Move>();
+    private List<Move> mazeSolution;
+    private Dictionary<Move, Move> oposites = new Dictionary<Move, Move>(){
                                 {Move.Left, Move.Right},
                                 {Move.Up, Move.Down},
                                 {Move.Down, Move.Up},
@@ -60,6 +81,12 @@ public class Maze : ModuleBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        List<(List<Move>, (int, int))> possiblePaths = presetPaths[GameManager.Instance.currentDifficulty];
+
+        (List<Move>, (int, int)) chosenPath = possiblePaths[random.Next(possiblePaths.Count)];
+        mazeSolution = chosenPath.Item1;
+        blinkStartTile = chosenPath.Item2;
+
         BlinkTile = blinkStartTile;
     }
     public void MazePositioningSystem(Move lastmove){

@@ -13,7 +13,13 @@ public class HeatShield : ModuleBehaviour
     [SerializeField] TMP_Text givenWordDisplay;
     [SerializeField] Button[] buttons;
 
-    public int remainingRounds;
+    private int remainingRounds;
+    private Dictionary<GameManager.Difficulty, int> difficultyToRounds = new Dictionary<GameManager.Difficulty, int>()
+    {
+        { GameManager.Difficulty.Easy,      2 },
+        { GameManager.Difficulty.Medium,    3 },
+        { GameManager.Difficulty.Difficult, 4 },
+    };
 
     private System.Random random = new System.Random();
 
@@ -64,6 +70,8 @@ public class HeatShield : ModuleBehaviour
             buttons[i].onClick.AddListener(() => ButtonPress(buttonIndex));
             buttons[i].GetComponentInChildren<TextMeshProUGUI>().fontSize = 48;
         }
+
+        remainingRounds = difficultyToRounds[GameManager.Instance.currentDifficulty];
 
         InitializeRound();
     }
