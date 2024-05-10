@@ -6,12 +6,15 @@ using Cinemachine;
 public class ModuleCamera1Switch : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera vcam;
-    [SerializeField] private CinemachineVirtualCamera capsuleCamera;
+    private static GameObject capsuleCameraObject;
+
+    private CinemachineVirtualCamera capsuleCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        capsuleCameraObject = GameObject.Find("Capsule Camera");
+        capsuleCamera = capsuleCameraObject.GetComponent<CinemachineVirtualCamera>();
     }
     private void OnMouseDown() {
         capsuleCamera.m_Priority = 10;

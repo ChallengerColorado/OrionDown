@@ -12,6 +12,8 @@ public class ModuleLoaderBehavior : MonoBehaviour
 
     private static System.Random random = new System.Random();
 
+    private static List<int> prefabIndicies = new List<int>();  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +40,18 @@ public class ModuleLoaderBehavior : MonoBehaviour
             chosenPositions.Add(availablePositions[newIndex]);
             availablePositions.RemoveAt(newIndex);
         }
-
+        int count = 0;
+        int newIndex2;
+        for (int i = 0; i < modulePrefabs.Length; i++){
+        prefabIndicies.Add(i);
+        }
         foreach (Transform t in chosenPositions)
         {
-            Instantiate(modulePrefabs[random.Next(modulePrefabs.Length)], t);
+            if (count++<4){
+            newIndex2 = random.Next(prefabIndicies.Count);
+            Instantiate(modulePrefabs[prefabIndicies[newIndex2]], t);
+            prefabIndicies.RemoveAt(newIndex2);
+            }
         }
     }
 }
