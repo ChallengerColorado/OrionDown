@@ -10,7 +10,7 @@ public class Passwords : MonoBehaviour
     private System.Random random = new System.Random();
 
     [SerializeField]
-    public TMP_Text[] charDisplays;
+    public TMP_Text[] charDisplays = new TMP_Text[5];
 
     private char[][] characters = {
         new char[6],

@@ -6,14 +6,27 @@ using Cinemachine;
 public class CapsuleCameraSwitch : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera capsuleCamera;
-    [SerializeField] private CinemachineVirtualCamera vcam1;
-    [SerializeField] private CinemachineVirtualCamera vcam2;
-    [SerializeField] private CinemachineVirtualCamera vcam3;
-    [SerializeField] private CinemachineVirtualCamera vcam4;
+    private GameObject vcam1Object;
+    private CinemachineVirtualCamera vcam1;
+    private GameObject vcam2Object;
+    private CinemachineVirtualCamera vcam2;
+    private GameObject vcam3Object;
+    private CinemachineVirtualCamera vcam3;
+    private GameObject vcam4Object;
+    private CinemachineVirtualCamera vcam4;
 
     // Start is called before the first frame update
     void Start()
     {
+        vcam1Object = GameObject.Find("Wires(Clone)/Wires Camera");
+        vcam1 = vcam1Object.GetComponent<CinemachineVirtualCamera>();
+        vcam2Object = GameObject.Find("Maze(Clone)/Maze Camera");
+        vcam2 = vcam2Object.GetComponent<CinemachineVirtualCamera>();
+        vcam3Object = GameObject.Find("Passwords(Clone)/Passwords Camera");
+        vcam3 = vcam3Object.GetComponent<CinemachineVirtualCamera>();
+        vcam4Object = GameObject.Find("Heat Shield(Clone)/Heat Shield Camera");
+        vcam4 = vcam4Object.GetComponent<CinemachineVirtualCamera>();
+
         capsuleCamera.m_Priority = 11;
 
     }
