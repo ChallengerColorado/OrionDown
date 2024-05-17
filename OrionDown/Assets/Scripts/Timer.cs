@@ -30,6 +30,7 @@ public sealed class Timer
             }
             yield return new WaitForSeconds(1);
         }
+        GameManager.Instance.StopGame(true, false);
     }
 
     public void SetPaused(bool paused)

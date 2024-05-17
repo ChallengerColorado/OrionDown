@@ -29,7 +29,16 @@ public sealed class GameManager : MonoBehaviour
         Difficult
     }
 
+    public enum Missionstatus
+    {
+        Prep,
+        Inprogress,
+        Lost,
+        Won
+    }
+
     public Difficulty currentDifficulty;
+    public Missionstatus currentMissionstatus = Missionstatus.Prep;
 
     public Timer GameTimer { get; private set; }
 
@@ -67,9 +76,12 @@ public sealed class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
-    public void StopGame(bool finished)
+    public void StopGame(bool finished, bool win)
     {
         StopCoroutine(GameTimer.Run);
-        SceneManager.LoadSceneAsync(finished ? 2 : 0);
+        if (finished){
+            SceneManager.LoadSceneAsync(2);
+            currentMissionstatus = win ? Missionstatus.Won : Missionstatus.Lost;
+        }
     }
 }

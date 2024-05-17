@@ -46,9 +46,7 @@ public class Passwords : MonoBehaviour
         wchars = words[random.Next(words.Length)].ToCharArray();
         for (int i = 0; i < characters.Length; i++)
         {
-            Debug.Log(wchars[i] + "wchar");
             characters[i][0] = wchars[i];
-            Debug.Log(characters[i][0] + "charecters");
             for (int j = 1; j < characters[i].Length;)
             {
                 newchar = alphabet[random.Next(alphabet.Length)];

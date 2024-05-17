@@ -8,7 +8,7 @@ public class TransitionButtonBehavior : MonoBehaviour
 
     public void GoToMenu()
     {
-        GameManager.Instance.StopGame(false);
+        GameManager.Instance.StopGame(false, false);
     }
 
     public void Pause()
@@ -21,9 +21,12 @@ public class TransitionButtonBehavior : MonoBehaviour
         GameManager.Instance.UnpauseGame();
     }
 
-    public void GoToEnd()
+    public void GoToLose()
     {
-        GameManager.Instance.StopGame(true);
+        GameManager.Instance.StopGame(true, false);
     }
-
+public void GoToWin()
+    {
+        GameManager.Instance.StopGame(true, true);
+    }
 }
