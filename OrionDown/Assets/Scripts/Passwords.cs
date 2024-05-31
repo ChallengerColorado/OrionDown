@@ -101,6 +101,7 @@ public class Passwords : MonoBehaviour
         if (currentIndices.SequenceEqual(solutionIndices)){
             if (--remainingRounds == 0)
             {
+                GameManager.Instance.ModuleFixed();
                 status = true;
                 return;
             }

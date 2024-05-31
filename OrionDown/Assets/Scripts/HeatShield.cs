@@ -182,6 +182,7 @@ public class HeatShield : ModuleBehaviour
         {
             if (--remainingRounds == 0)
             {
+                GameManager.Instance.ModuleFixed();
                 Status = true;
                 return;
             }

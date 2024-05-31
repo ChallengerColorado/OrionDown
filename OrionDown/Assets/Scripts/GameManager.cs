@@ -40,6 +40,7 @@ public sealed class GameManager : MonoBehaviour
     public Difficulty currentDifficulty;
     public Missionstatus currentMissionstatus = Missionstatus.Prep;
 
+    public int modulesBroken = 4;
     public Timer GameTimer { get; private set; }
 
     void Awake()
@@ -64,6 +65,14 @@ public sealed class GameManager : MonoBehaviour
         StartCoroutine(GameTimer.Run);
     }
 
+    public void ModuleFixed(){
+        modulesBroken -= 1;
+        Debug.Log(modulesBroken);
+        if (modulesBroken < 1){
+            StopGame(true, true);
+            Debug.Log("Hooray");
+        }
+    }
     public void PauseGame()
     {
         GameTimer.SetPaused(true);

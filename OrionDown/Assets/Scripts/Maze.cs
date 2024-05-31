@@ -55,20 +55,20 @@ public class Maze : ModuleBehaviour
     {
         { GameManager.Difficulty.Easy, new List<(List<Move>, (int, int))> () // all paths for the easy mode
             {
-                ( new List<Move>() { Move.Left, Move.Up, Move.Left, Move.Down}, (1, 1)), // each possible path as a (Moves, startPosition) tuple
+                ( new List<Move>() { Move.Left, Move.Up, Move.Left, Move.Down}, (4, 4)), // each possible path as a (Moves, startPosition) tuple
                 (new List<Move>() { Move.Up, Move.Up, Move.Left, Move.Down}, (1, 1))
             }
         },
         { GameManager.Difficulty.Medium, new List<(List<Move>, (int, int))> ()
             {
-                ( new List<Move>() { Move.Right, Move.Up, Move.Up, Move.Right, Move.Down, Move.Right }, (1, 1)),
-                ( new List<Move>() { Move.Down, Move.Left, Move.Down, Move.Left, Move.Up, Move.Up }, (1, 1))
+                ( new List<Move>() { Move.Right, Move.Up, Move.Up, Move.Right, Move.Down, Move.Right }, (3, 1)),
+                ( new List<Move>() { Move.Down, Move.Left, Move.Down, Move.Left, Move.Up, Move.Up }, (2, 6))
             }
         },
         { GameManager.Difficulty.Difficult, new List<(List<Move>, (int, int))> ()
             {
-                ( new List<Move>() { Move.Up, Move.Right, Move.Right, Move.Down, Move.Right, Move.Down, Move.Left, Move.Left }, (1, 1)),
-                ( new List<Move>() { Move.Up, Move.Right, Move.Right, Move.Down, Move.Right, Move.Down, Move.Left, Move.Left }, (1, 1))
+                ( new List<Move>() { Move.Up, Move.Right, Move.Right, Move.Down, Move.Right, Move.Down, Move.Left, Move.Left }, (4, 2)),
+                ( new List<Move>() { Move.Up, Move.Right, Move.Right, Move.Down, Move.Right, Move.Down, Move.Left, Move.Left }, (5, 3))
             }
         }
     };
@@ -158,6 +158,7 @@ public class Maze : ModuleBehaviour
             yield return new WaitForSeconds(blinkDuration);
         }
 
+        GameManager.Instance.ModuleFixed();
         Status = true;
     }
 

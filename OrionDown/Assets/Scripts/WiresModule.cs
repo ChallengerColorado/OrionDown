@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEditor.Overlays;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WiresModule : ModuleBehaviour
 {
@@ -17,19 +18,7 @@ public class WiresModule : ModuleBehaviour
 
     private List<int> buttonToWire = new List<int>();
 
-    private GameObject buttonObject1;
-    private GameObject buttonObject2;
-    private GameObject buttonObject3;
-    private GameObject buttonObject4;
-    private GameObject buttonObject5;
-    private GameObject buttonObject6;
-    private GameObject buttonObject7;
-    private GameObject buttonObject8;
-
-    private List<GameObject> buttonObjects = new List<GameObject>(){};
     
-    
-
     //dificulty system
     private static Dictionary<GameManager.Difficulty, (WireSpec[], bool[])[]> wireConfig = new Dictionary<GameManager.Difficulty, (WireSpec[], bool[])[]>()
     {
@@ -127,23 +116,6 @@ public class WiresModule : ModuleBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buttonObject1 = GameObject.Find("Puzzle_UI/Button");
-        buttonObject2 = GameObject.Find("Puzzle_UI/Button_(1)");
-        buttonObject3 = GameObject.Find("Puzzle_UI/Button_(2)");
-        buttonObject4 = GameObject.Find("Puzzle_UI/Button_(3)");
-        buttonObject5 = GameObject.Find("Puzzle_UI/Button_(4)");
-        buttonObject6 = GameObject.Find("Puzzle_UI/Button_(5)");
-        buttonObject7 = GameObject.Find("Puzzle_UI/Button_(6)");
-        buttonObject8 = GameObject.Find("Puzzle_UI/Button_(7)");
-        
-        buttonObjects.Add(buttonObject1);
-        buttonObjects.Add(buttonObject2);
-        buttonObjects.Add(buttonObject3);
-        buttonObjects.Add(buttonObject4);
-        buttonObjects.Add(buttonObject5);
-        buttonObjects.Add(buttonObject6);
-        buttonObjects.Add(buttonObject7);
-        buttonObjects.Add(buttonObject8);
 
         topSockets = new Transform[]
         {
@@ -198,9 +170,9 @@ public class WiresModule : ModuleBehaviour
         InitializeWires();
     }
 
+    private Image image;
     public void ToggleWire(int position)
     {
-        buttonObjects[position].GetComponent<Renderer>().material.color = Color.red;
         if(buttonToWire.Contains(position)){
         wires[buttonToWire.IndexOf(position)].status = !wires[buttonToWire.IndexOf(position)].status;
         Debug.Log("Wire Status" + buttonToWire.IndexOf(position) + wires[buttonToWire.IndexOf(position)].status);;
@@ -215,7 +187,7 @@ public class WiresModule : ModuleBehaviour
                 return;
         }
 
-        Debug.Log("Hooray");
+        GameManager.Instance.ModuleFixed();
 
     }
 
