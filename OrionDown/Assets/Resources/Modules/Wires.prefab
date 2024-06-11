@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 5657160947199737892}
   - component: {fileID: 4749776107068081321}
   - component: {fileID: 7214743827371285326}
+  - component: {fileID: 6828139892623075232}
   m_Layer: 0
   m_Name: Button (7)
   m_TagString: Untagged
@@ -630,6 +631,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6828139892623075232}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: toggleColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6828139892623075232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541679449014450710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475d352ae82cf2b41a9b1e5e664d2ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingStatus: 0
+  onColor: {r: 0, g: 0, b: 0, a: 0}
+  offColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2321641707480405397
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,6 +670,7 @@ GameObject:
   - component: {fileID: 3788287177683598695}
   - component: {fileID: 4798095289197608786}
   - component: {fileID: 6823624102288370435}
+  - component: {fileID: 6204508050585537665}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -763,6 +792,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6204508050585537665}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: toggleColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6204508050585537665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2321641707480405397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475d352ae82cf2b41a9b1e5e664d2ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingStatus: 0
+  onColor: {r: 0, g: 1, b: 0, a: 0}
+  offColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1 &2327004602150359299
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +965,7 @@ GameObject:
   - component: {fileID: 6758824050729172102}
   - component: {fileID: 1563176538582150818}
   - component: {fileID: 2579470355119666796}
+  - component: {fileID: 6911261727203234672}
   m_Layer: 0
   m_Name: Button (2)
   m_TagString: Untagged
@@ -1030,6 +1087,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6911261727203234672}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: toggleColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6911261727203234672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2430723075613817630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475d352ae82cf2b41a9b1e5e664d2ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingStatus: 0
+  onColor: {r: 0, g: 0, b: 0, a: 0}
+  offColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2689678788287899667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,6 +1503,7 @@ GameObject:
   - component: {fileID: 7474250365145398867}
   - component: {fileID: 109982470304016794}
   - component: {fileID: 8076612990817107278}
+  - component: {fileID: 8829207503637157228}
   m_Layer: 0
   m_Name: Button (4)
   m_TagString: Untagged
@@ -1540,6 +1625,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8829207503637157228}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: toggleColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8829207503637157228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4365233547549966343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475d352ae82cf2b41a9b1e5e664d2ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingStatus: 0
+  onColor: {r: 0, g: 0, b: 0, a: 0}
+  offColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &4766020768564259817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,6 +1664,7 @@ GameObject:
   - component: {fileID: 465612976199988428}
   - component: {fileID: 8769507198913354325}
   - component: {fileID: 1275517479851989645}
+  - component: {fileID: 4940124567924424258}
   m_Layer: 0
   m_Name: Button (6)
   m_TagString: Untagged
@@ -1673,6 +1786,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4940124567924424258}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: toggleColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4940124567924424258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4766020768564259817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475d352ae82cf2b41a9b1e5e664d2ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingStatus: 0
+  onColor: {r: 0, g: 0, b: 0, a: 0}
+  offColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &4993957869083633287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,6 +2093,7 @@ GameObject:
   - component: {fileID: 2321942584565543459}
   - component: {fileID: 6065405836207519632}
   - component: {fileID: 3781234505696241849}
+  - component: {fileID: 7168036681660913404}
   m_Layer: 0
   m_Name: Button (5)
   m_TagString: Untagged
@@ -2074,6 +2215,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7168036681660913404}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: toggleColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7168036681660913404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350136856156039631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475d352ae82cf2b41a9b1e5e664d2ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingStatus: 0
+  onColor: {r: 0, g: 0, b: 0, a: 0}
+  offColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6433013207783823478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,6 +2388,7 @@ GameObject:
   - component: {fileID: 254017573027716318}
   - component: {fileID: 1453067234991771484}
   - component: {fileID: 2943925453130163635}
+  - component: {fileID: 5176675484467929865}
   m_Layer: 0
   m_Name: Button (3)
   m_TagString: Untagged
@@ -2341,6 +2510,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5176675484467929865}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: toggleColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5176675484467929865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6690181185057835894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475d352ae82cf2b41a9b1e5e664d2ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingStatus: 0
+  onColor: {r: 0, g: 0, b: 0, a: 0}
+  offColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6765395984682739079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,6 +2549,7 @@ GameObject:
   - component: {fileID: 3730406252823161114}
   - component: {fileID: 6875495822946934569}
   - component: {fileID: 9130084989833430617}
+  - component: {fileID: 3917882811284277417}
   m_Layer: 0
   m_Name: Button (1)
   m_TagString: Untagged
@@ -2474,6 +2671,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3917882811284277417}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: toggleColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3917882811284277417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6765395984682739079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475d352ae82cf2b41a9b1e5e664d2ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingStatus: 0
+  onColor: {r: 0, g: 0, b: 0, a: 0}
+  offColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6984173262900369437
 GameObject:
   m_ObjectHideFlags: 0
