@@ -91,6 +91,7 @@ public sealed class GameManager : MonoBehaviour
         if (finished){
             SceneManager.LoadSceneAsync(2);
             currentMissionstatus = win ? Missionstatus.Won : Missionstatus.Lost;
-        }
+        } else
+            SceneManager.LoadSceneAsync(0);
     }
 }
