@@ -167,6 +167,7 @@ public class PropulsionModule : ModuleBehaviour
         layout = chosenPreset.Item1;
         solution = chosenPreset.Item2;
 
+        SetStatus(false, "&¥");
         InitializeWires();
     }
 
@@ -187,7 +188,7 @@ public class PropulsionModule : ModuleBehaviour
                 return;
         }
 
-        GameManager.Instance.ModuleFixed();
+        SetStatus(true, "BB");
 
     }
 

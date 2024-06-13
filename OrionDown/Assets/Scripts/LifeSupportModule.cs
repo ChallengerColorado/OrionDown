@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 
-public class LifeSupportModule : MonoBehaviour
+public class LifeSupportModule : ModuleBehaviour
 {
     private System.Random random = new System.Random();
 
@@ -34,6 +34,9 @@ public class LifeSupportModule : MonoBehaviour
         "right" 
     };
 
+
+    private int remainingRounds = 3;
+
     private int[] currentIndices = new int[5];
 
     private int[] solutionIndices = new int[5];
@@ -43,6 +46,8 @@ public class LifeSupportModule : MonoBehaviour
     private char newchar;
     private void InitializeRound()
     {
+        SetStatus(false, remainingRounds.ToString("D2"));
+
         wchars = words[random.Next(words.Length)].ToCharArray();
         for (int i = 0; i < characters.Length; i++)
         {
@@ -94,15 +99,12 @@ public class LifeSupportModule : MonoBehaviour
         charDisplays[buttonPressed].text = characters[buttonPressed][currentIndices[buttonPressed]].ToString();
     }
 
-    private int remainingRounds = 3;
-    public bool status = false;
     public void CheckPassword()
     {
         if (currentIndices.SequenceEqual(solutionIndices)){
             if (--remainingRounds == 0)
             {
-                GameManager.Instance.ModuleFixed();
-                status = true;
+                SetStatus(true, "BB");
                 return;
             }
             InitializeRound();

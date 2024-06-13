@@ -91,6 +91,7 @@ public class RadiationProtectionModule : ModuleBehaviour
         blinkStartTile = chosenPath.Item2;
 
         BlinkTile = blinkStartTile;
+        SetStatus(false, "}·");
     }
     public void MazePositioningSystem(Move lastmove){
         if (mazepath.Count() == 0){
@@ -134,7 +135,7 @@ public class RadiationProtectionModule : ModuleBehaviour
 
     private IEnumerator VerifyPath()
     {
-        if (Status)
+        if (GetStatus())
             yield break;
 
         blink.gameObject.SetActive(true);
@@ -158,8 +159,7 @@ public class RadiationProtectionModule : ModuleBehaviour
             yield return new WaitForSeconds(blinkDuration);
         }
 
-        GameManager.Instance.ModuleFixed();
-        Status = true;
+        SetStatus(true, "BB");
     }
 
     private IEnumerator DisplayInvalidMessage()

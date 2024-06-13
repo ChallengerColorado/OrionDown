@@ -73,6 +73,7 @@ public class HeatShield : ModuleBehaviour
 
         remainingRounds = difficultyToRounds[GameManager.Instance.currentDifficulty];
 
+        SetStatus(false, "ö*");
         InitializeRound();
     }
 
@@ -182,8 +183,7 @@ public class HeatShield : ModuleBehaviour
         {
             if (--remainingRounds == 0)
             {
-                GameManager.Instance.ModuleFixed();
-                Status = true;
+                SetStatus(true, "BB");
                 return;
             }
         }

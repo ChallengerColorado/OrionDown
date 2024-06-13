@@ -8,24 +8,19 @@ public class ModuleBehaviour : MonoBehaviour
     [SerializeField] TMP_Text titleText;
     [SerializeField] TMP_Text statusText;
 
-    private bool _status;
-    public bool Status {
-        get
-        {
-            return _status;
-        }
-        protected set
-        {
-            _status = value;
-            SetStatusText("BB");
-        }
-    }
+    private bool _status = false;
 
-    private void SetStatusText(string status) {
-        if (status.Length != 2)
+    protected void SetStatus(bool status, string text) {
+        if (text.Length != 2)
             throw new ArgumentException("Status must be of length 2");
 
-        statusText.text = status;
+        statusText.text = text;
+
+        _status = status;
+        if (status)
+            GameManager.Instance.ModuleFixed();
     }
+
+    protected bool GetStatus() { return _status; }
 
 }

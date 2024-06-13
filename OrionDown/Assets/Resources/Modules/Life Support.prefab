@@ -280,8 +280,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d668adabd160607478fad7b2bc9c9e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleText: {fileID: 0}
+  statusText: {fileID: 0}
   charDisplays: []
-  status: 0
 --- !u!1 &626071839621717090
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,8 +484,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: AA
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d9cebcc20804c6344a54dcbf65f94703, type: 2}
+  m_sharedMaterial: {fileID: -4236544905985100348, guid: d9cebcc20804c6344a54dcbf65f94703, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5180,13 +5181,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d668adabd160607478fad7b2bc9c9e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleText: {fileID: 2990633348022887957}
+  statusText: {fileID: 4259378248355151032}
   charDisplays:
   - {fileID: 8480535927791616823}
   - {fileID: 332458998295774691}
   - {fileID: 2122119558641709738}
   - {fileID: 7579247366386322247}
   - {fileID: 2746337186593262592}
-  status: 0
 --- !u!4 &1951736838080576293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1151388028547126963, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
