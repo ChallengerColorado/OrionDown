@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 
-public class Passwords : MonoBehaviour
+public class LifeSupportModule : MonoBehaviour
 {
     private System.Random random = new System.Random();
 

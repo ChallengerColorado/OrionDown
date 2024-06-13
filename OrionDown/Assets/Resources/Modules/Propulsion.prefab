@@ -333,7 +333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Propulsion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1550,7 +1550,7 @@ GameObject:
   - component: {fileID: 7786626165480391590}
   - component: {fileID: 501640436094069346}
   m_Layer: 0
-  m_Name: Wires Camera
+  m_Name: Propulsion Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3057,7 +3057,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 580fe3154dc624b439de426b33211482, type: 2}
     - target: {fileID: 919132149155446097, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
       propertyPath: m_Name
-      value: Wires
+      value: Propulsion
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
       propertyPath: m_IsActive

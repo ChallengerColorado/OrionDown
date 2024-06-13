@@ -19,9 +19,9 @@ public class ModuleLoaderBehavior : MonoBehaviour
     {
         modulePrefabs = new GameObject[]
         {
-            Resources.Load<GameObject>("Modules/Wires"),
-            Resources.Load<GameObject>("Modules/Maze"),
-            Resources.Load<GameObject>("Modules/Passwords"),
+            Resources.Load<GameObject>("Modules/Propulsion"),
+            Resources.Load<GameObject>("Modules/Radiation Protection"),
+            Resources.Load<GameObject>("Modules/Life Support"),
             Resources.Load<GameObject>("Modules/Heat Shield")
         };
 

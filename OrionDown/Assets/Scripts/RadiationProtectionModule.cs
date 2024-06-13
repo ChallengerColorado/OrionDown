@@ -8,7 +8,7 @@ using TMPro;
 using System.Collections.Specialized;
 using UnityEditorInternal;
 
-public class Maze : ModuleBehaviour
+public class RadiationProtectionModule : ModuleBehaviour
 {
     [SerializeField] public Image mapBackground;
     [SerializeField] public Image blink;

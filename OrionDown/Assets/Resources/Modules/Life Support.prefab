@@ -2326,7 +2326,7 @@ GameObject:
   - component: {fileID: 1854778822274722548}
   - component: {fileID: 6909495421427127031}
   m_Layer: 0
-  m_Name: Passwords Camera
+  m_Name: Life Support Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3625,7 +3625,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Life Support
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5089,7 +5091,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 580fe3154dc624b439de426b33211482, type: 2}
     - target: {fileID: 919132149155446097, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
       propertyPath: m_Name
-      value: Passwords
+      value: Life Support
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 27c28b9cd4aa3d348b4cadaa73e75c5d, type: 3}
       propertyPath: m_IsActive

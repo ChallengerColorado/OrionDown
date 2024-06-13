@@ -18,11 +18,11 @@ public class CapsuleCameraSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        vcam1Object = GameObject.Find("Wires(Clone)/Wires Camera");
+        vcam1Object = GameObject.Find("Propulsion(Clone)/Propulsion Camera");
         vcam1 = vcam1Object.GetComponent<CinemachineVirtualCamera>();
-        vcam2Object = GameObject.Find("Maze(Clone)/Maze Camera");
+        vcam2Object = GameObject.Find("Radiation Protection(Clone)/Radiation Protection Camera");
         vcam2 = vcam2Object.GetComponent<CinemachineVirtualCamera>();
-        vcam3Object = GameObject.Find("Passwords(Clone)/Passwords Camera");
+        vcam3Object = GameObject.Find("Life Support(Clone)/Life Support Camera");
         vcam3 = vcam3Object.GetComponent<CinemachineVirtualCamera>();
         vcam4Object = GameObject.Find("Heat Shield(Clone)/Heat Shield Camera");
         vcam4 = vcam4Object.GetComponent<CinemachineVirtualCamera>();

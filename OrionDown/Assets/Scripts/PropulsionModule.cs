@@ -7,7 +7,7 @@ using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WiresModule : ModuleBehaviour
+public class PropulsionModule : ModuleBehaviour
 {
     private Transform[] topSockets;
 
@@ -232,7 +232,7 @@ public class WiresModule : ModuleBehaviour
         public GameObject gameObject;
         public bool status = true;
 
-        public Wire(WireSpec spec, Transform parent, WiresModule module)
+        public Wire(WireSpec spec, Transform parent, PropulsionModule module)
         {
             Debug.Log("Making wire: " + parent);
             this.spec = spec;

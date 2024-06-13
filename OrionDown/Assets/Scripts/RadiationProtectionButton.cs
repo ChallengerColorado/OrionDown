@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MazeButton : MonoBehaviour
+public class RadiationProtectionButton : MonoBehaviour
 {
     [SerializeField] private GameObject m_maze;
 
-    private Maze m_mazescript;
-    [SerializeField] private Maze.Move lastmove;
+    private RadiationProtectionModule m_mazescript;
+    [SerializeField] private RadiationProtectionModule.Move lastmove;
     // Start is called before the first frame update
     void Start()
     {
-        m_mazescript =  m_maze.GetComponent<Maze>();
+        m_mazescript =  m_maze.GetComponent<RadiationProtectionModule>();
     }
     public void OnButtonPress() {
         m_mazescript.MazePositioningSystem(lastmove);

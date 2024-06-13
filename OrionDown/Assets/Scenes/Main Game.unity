@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587272, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2104,10 +2104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   capsuleCamera: {fileID: 2098884610}
-  vcam1: {fileID: 3255144963839527450}
-  vcam2: {fileID: 3645389813690901901}
-  vcam3: {fileID: 3949889060475981468}
-  vcam4: {fileID: 5903214951078331906}
 --- !u!1001 &3255144963839527449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2122,7 +2118,7 @@ PrefabInstance:
       objectReference: {fileID: 690585997}
     - target: {fileID: 2790401363755574117, guid: e62e45565ea32674194374da0cdfd54a, type: 3}
       propertyPath: m_Name
-      value: Wires
+      value: Propulsion
       objectReference: {fileID: 0}
     - target: {fileID: 2790401363755574117, guid: e62e45565ea32674194374da0cdfd54a, type: 3}
       propertyPath: m_IsActive
@@ -2185,17 +2181,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e62e45565ea32674194374da0cdfd54a, type: 3}
---- !u!114 &3255144963839527450 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 501640436094069346, guid: e62e45565ea32674194374da0cdfd54a, type: 3}
-  m_PrefabInstance: {fileID: 3255144963839527449}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3645389813690901900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2306,7 +2291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6478398164975408311, guid: a6a621d491272b44988d0b7d5027431b, type: 3}
       propertyPath: m_Name
-      value: Maze
+      value: Radiation Protection
       objectReference: {fileID: 0}
     - target: {fileID: 6478398164975408311, guid: a6a621d491272b44988d0b7d5027431b, type: 3}
       propertyPath: m_IsActive
@@ -2369,17 +2354,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6a621d491272b44988d0b7d5027431b, type: 3}
---- !u!114 &3645389813690901901 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4170391306962967359, guid: a6a621d491272b44988d0b7d5027431b, type: 3}
-  m_PrefabInstance: {fileID: 3645389813690901900}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3949889060475981467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2478,7 +2452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1742350783638884551, guid: 292cc67fa32a33f408442a0ad7829249, type: 3}
       propertyPath: m_Name
-      value: Passwords
+      value: Life Support
       objectReference: {fileID: 0}
     - target: {fileID: 1742350783638884551, guid: 292cc67fa32a33f408442a0ad7829249, type: 3}
       propertyPath: m_IsActive
@@ -2777,17 +2751,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 292cc67fa32a33f408442a0ad7829249, type: 3}
---- !u!114 &3949889060475981468 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6909495421427127031, guid: 292cc67fa32a33f408442a0ad7829249, type: 3}
-  m_PrefabInstance: {fileID: 3949889060475981467}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5903214951078331905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3041,17 +3004,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7c6fba1b263deb4cb73bce28abfc3a0, type: 3}
---- !u!114 &5903214951078331906 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5073978567818734664, guid: e7c6fba1b263deb4cb73bce28abfc3a0, type: 3}
-  m_PrefabInstance: {fileID: 5903214951078331905}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
