@@ -167,7 +167,7 @@ public class PropulsionModule : ModuleBehaviour
         layout = chosenPreset.Item1;
         solution = chosenPreset.Item2;
 
-        SetStatus(false, "&¥");
+        SetStatus(false, "@#");
         InitializeWires();
     }
 
@@ -175,8 +175,8 @@ public class PropulsionModule : ModuleBehaviour
     public void ToggleWire(int position)
     {
         if(buttonToWire.Contains(position)){
-        wires[buttonToWire.IndexOf(position)].status = !wires[buttonToWire.IndexOf(position)].status;
-        Debug.Log("Wire Status" + buttonToWire.IndexOf(position) + wires[buttonToWire.IndexOf(position)].status);;
+        wires[buttonToWire.IndexOf(position)].state = !wires[buttonToWire.IndexOf(position)].state;
+        Debug.Log("Wire state" + buttonToWire.IndexOf(position) + wires[buttonToWire.IndexOf(position)].state);;
         CheckWires();}
     }
 
@@ -184,7 +184,7 @@ public class PropulsionModule : ModuleBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            if (wires[i].status != solution[i])
+            if (wires[i].state != solution[i])
                 return;
         }
 
@@ -231,7 +231,7 @@ public class PropulsionModule : ModuleBehaviour
     {
         public WireSpec spec;
         public GameObject gameObject;
-        public bool status = true;
+        public bool state = true;
 
         public Wire(WireSpec spec, Transform parent, PropulsionModule module)
         {
