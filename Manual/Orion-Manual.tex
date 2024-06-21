@@ -1,23 +1,28 @@
-\documentclass[a4paper,12pt, draft]{article}
+\documentclass[12pt, draft]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{geometry}
 
-% \renewcommand{\familydefault}{\sfdefault}
+\geometry{letterpaper, margin=1in}
 
-% \AddToHook{cmd/section/before}{\clearpage}
-% \AddToHook{cmd/subsection/before}{\clearpage}
-
+\renewcommand{\familydefault}{\sfdefault}
 \frenchspacing
+
+\pagestyle{myheadings}
+\markright{Orion Capsule Repair Manual}
+
+\AddToHook{cmd/section/before}{\clearpage}
 
 \begin{document}
 
 \begin{titlepage}
+ \thispagestyle{empty}
  \centering
+ \rmfamily
  {\Huge\bfseries Orion Capsule Repair Manual\par}
  \vspace{1cm}
  {\Large Mission Control Guide}
  \vfill
 \end{titlepage}
-
 
 \section*{Introduction}
 Although everything possible is done beforehand to limit the possibility of the spacecraft being damaged during a mission, it is still a scenario that both the crew of the spacecraft and Mission Control must be prepared for. This manual has been written to assist Mission Control in guiding the astronauts through the progress of diagnosing and fixing issues that may arise with the Orion capsule.
@@ -31,6 +36,7 @@ First and foremost, it is of the utmost importance that problems be fixed in a t
 Throughout the interior of the Orion capsule, several panels can be found. Each one interfaces with a different essential system in the spacecraft and can be used to detect and fix problems. Should any problems arise, it is imperative that the astronauts make an exhaustive search of the capsule interior for panels with an error status. All surfaces of the capsule should be thouroughly searched. Each panel has a title on the top indicating which system it is connected to and a status indicator on the top-right consisting of a two-character display that conveys information about the state of the connected system through the code it displays. Below the title and status indicator is the system interface, which contains elements allowing astronauts to interact with the system in order to repair it. If the system is repaired or progress is made, this may be deduced from the status code. Thus, it is important for the astronauts to relay the status code of a given panel and any changes thereto to Mission Control, so that they may identify any essential information carried by it using this manual.
 
 \section*{Panel Usage}
+\AddToHook{cmd/subsection/before}{\clearpage}
 
 This section details the operation and functionality of each type of panel present in the interior of the Orion capsule. To diagnose and fix issues with a given panel, consult the corresponding subsection and follow the instructions given.
 
