@@ -1,4 +1,4 @@
-\documentclass[12pt, draft]{article}
+\documentclass[12pt,draft]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \usepackage{tabularray}
@@ -9,6 +9,8 @@
 
 \renewcommand{\familydefault}{\sfdefault}
 \frenchspacing
+
+\graphicspath{{./Graphics/Output/}}
 
 \pagestyle{myheadings}
 \markright{Orion Capsule Repair Manual}
@@ -35,12 +37,14 @@
 }
 
 \iffalse
-\newcommand{radtable}[2]{
+\newcommand{\radtable}[1]{
  \begin{tblr}{
+  %vlines,
   rows = {m}, columns = {c},
+  colsep = 0pt
  }
   \status{#1} \\
-  \includegraphics[width=3cm]{#2}
+  \includegraphics[width=2in]{#1}
  \end{tblr}
 }
 \fi
@@ -136,7 +140,33 @@ Due to the extreme forces incurred by the spacecraft during flight, the radiatio
 
 On the control panel, a grid is displayed with four buttons below it, each with an arrow facing a different direction. There is also a Submit button below these. One square in the grid will be highlighted; this square represents the current orientation of the control filter. Use the panel status to determine the layout of the filter space according to the diagram below. The target position of the filter in each layout is marked with a dot. The lines between the spaces represent the movement contstraints of the filter; they can be treated as barriers that the filters path cannot cross.
 
-% \radtable{AE}{image}
+\iffalse
+\begin{center}
+\begin{tblr}{
+ vlines,
+ rows = {m}, columns = {c},
+ colsep = 6pt
+}
+ \radtable{AE} & \radtable{AE} & \radtable{AE}
+\end{tblr}
+\end{center}
+\fi
+
+\begin{center}
+\begin{tblr}{
+ rows = {m}, columns = {c},
+ colsep = 4pt
+}
+ \status{AE} & \status{AE} & \status{AE}\\
+ \includegraphics[width=2in]{AE} & \includegraphics[width=2in]{AE} & \includegraphics[width=2in]{AE}\\
+ \status{AE} & \status{AE} & \status{AE}\\
+ \includegraphics[width=2in]{AE} & \includegraphics[width=2in]{AE} & \includegraphics[width=2in]{AE}
+
+\end{tblr}
+\end{center}
+
+
+% \radtable{AE}
 
 To realign the radiation control filter, use the buttons below the grid to plan out a path for the radiation control filter to return to the target state from the starting state. A movement in one direction will be canceled out by a movement immediately following it in the opposite direction; thus, any errors made while planning out the path can be corrected. Once the path has been planned out, click the Submit button to execute the realignment. The highlighted square will follow the designated path. If an incorrect step is encountered, an error message will appear and the filter state will reset, allowing you to attempt the realignment again. Once the filter has been properly realigned, the panel status will change to \status{BB} to indicate that no further actions are necessary.
 
