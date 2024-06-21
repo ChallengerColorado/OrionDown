@@ -9,7 +9,7 @@ RECT_SIZE = 1/32
 
 def maze(vertical, horizontal, end):
 
-    maze_fig = figs.Figure(figsize=(3, 3))
+    maze_fig = figs.Figure(figsize=(3, 3), dpi=150)
 
     maze_fig.add_artist(mptch.Rectangle(
         (.0, .0), 1, 1,
