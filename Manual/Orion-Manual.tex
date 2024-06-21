@@ -1,6 +1,7 @@
 \documentclass[12pt, draft]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
+\usepackage{tabularray}
 
 \geometry{letterpaper, margin=1in}
 
@@ -11,6 +12,9 @@
 \markright{Orion Capsule Repair Manual}
 
 \AddToHook{cmd/section/before}{\clearpage}
+
+\def\overview{\subsubsection*{Overview}}
+\def\instruc{\subsubsection*{Repair Instructions}}
 
 \begin{document}
 
@@ -41,8 +45,48 @@ Throughout the interior of the Orion capsule, several panels can be found. Each 
 This section details the operation and functionality of each type of panel present in the interior of the Orion capsule. To diagnose and fix issues with a given panel, consult the corresponding subsection and follow the instructions given.
 
 \subsection*{Propulsion System}
+
+\overview
+
+In order for the propulsion system to work properly, it is important to ensure that all of the electrical components involved are correctly connected. In the event of a propulsion system failure, the wires must be checked and reconnected so that the correct configuration is achieved for the launch sequence.
+
+\instruc
+
 \subsection*{Heat Shield}
+
+\overview
+
+To repair the heat shield, it is necessary to regonfigure the six-block control panel in order to provide full protection for the vehicle.
+
+\instruc
+
 \subsection*{Radiation Protection System}
+
+\overview
+
+Due to the extreme forces incurred by the spacecraft during flight, the radiation control filters may become misaligned. When this happens, it is necessary to realign them to ensure complete protection from radiation in the Van Allen Belt.
+
+\instruc
+
 \subsection*{Life Support System}
+
+\overview
+
+Due to internal malfunctions and equipment damage, the life support configuration files may become corrupted. When this happens, it is necessary for the astronaught to reconfirm the crew settings through the digital control panel.
+
+\instruc
+
+On the panel, there are five letter displays laid out in a row, each surrounded on the top and bottom by buttons that can be used to cycle through the available letters for that display. There may be multiple rounds of settings to be confirmed. For each round, choose letters to spell out one of the words in the table below. Only one word will be possible to spell per round. Once you have spelled the word on the letter displays, click the submit button to check whether the correct input was given and move onto the next round. Once all rounds have been completed, the status indicator will show the code \fbox{\ttfamily BB} to signal that the settings have all successfully been restored and the life support system is in working order.
+
+\vspace{2em}
+\begin{center}
+\begin{tblr}{
+ hlines, vlines,
+ rows = {1cm,m}, columns = {2cm,c}
+}
+ about & admin & after & again & below\\
+ optic & orbit & orion & oxide & right
+\end{tblr}
+\end{center}
 
 \end{document}
