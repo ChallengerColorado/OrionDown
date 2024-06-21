@@ -17,6 +17,8 @@ public class PropulsionModule : ModuleBehaviour
     private Dictionary<WireColor, Material> colorMaterials;
 
     private List<int> buttonToWire = new List<int>();
+    
+    private bool complete = false;
 
     
     //dificulty system
@@ -176,12 +178,15 @@ public class PropulsionModule : ModuleBehaviour
     {
         if(buttonToWire.Contains(position)){
         wires[buttonToWire.IndexOf(position)].state = !wires[buttonToWire.IndexOf(position)].state;
-        Debug.Log("Wire state" + buttonToWire.IndexOf(position) + wires[buttonToWire.IndexOf(position)].state);;
+        // Debug.Log("Wire state" + buttonToWire.IndexOf(position) + wires[buttonToWire.IndexOf(position)].state);
         CheckWires();}
     }
 
     private void CheckWires()
     {
+        if(complete){
+        return;
+        }
         for (int i = 0; i < 2; i++)
         {
             if (wires[i].state != solution[i])
@@ -189,7 +194,7 @@ public class PropulsionModule : ModuleBehaviour
         }
 
         SetStatus(true, "BB");
-
+        complete = true;
     }
 
     private void InitializeWires() {
@@ -259,5 +264,4 @@ public class PropulsionModule : ModuleBehaviour
             Debug.Log("Position: " + gameObject.transform.position);
         }
     }
-
 }

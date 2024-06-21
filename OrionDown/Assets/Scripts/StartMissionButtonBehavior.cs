@@ -24,6 +24,7 @@ public class StartMission : MonoBehaviour
                 errorText.text = "Invalid code";
         else
             GameManager.Instance.StartGame(codeToDifficulty[codeInputField.text]);
+            GameManager.Instance.modulesBroken = 4;
     }
 
 
