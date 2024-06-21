@@ -3,6 +3,7 @@
 \usepackage{geometry}
 \usepackage{tabularray}
 \usepackage{etoolbox}
+\usepackage{graphicx}
 
 \geometry{letterpaper, margin=1in}
 
@@ -32,6 +33,17 @@
   \maybedot{#2}{4} & \maybedot{#2}{5} & \maybedot{#2}{6}
  \end{tblr}
 }
+
+\iffalse
+\newcommand{radtable}[2]{
+ \begin{tblr}{
+  rows = {m}, columns = {c},
+ }
+  \status{#1} \\
+  \includegraphics[width=3cm]{#2}
+ \end{tblr}
+}
+\fi
 
 \begin{document}
 
@@ -121,6 +133,12 @@ Once all rounds have been completed, the status indicator will show the code \st
 Due to the extreme forces incurred by the spacecraft during flight, the radiation control filters may become misaligned. When this happens, it is necessary to realign them to ensure complete protection from radiation in the Van Allen Belt.
 
 \instruc
+
+On the control panel, a grid is displayed with four buttons below it, each with an arrow facing a different direction. There is also a Submit button below these. One square in the grid will be highlighted; this square represents the current orientation of the control filter. Use the panel status to determine the layout of the filter space according to the diagram below. The target position of the filter in each layout is marked with a dot. The lines between the spaces represent the movement contstraints of the filter; they can be treated as barriers that the filters path cannot cross.
+
+% \radtable{AE}{image}
+
+To realign the radiation control filter, use the buttons below the grid to plan out a path for the radiation control filter to return to the target state from the starting state. A movement in one direction will be canceled out by a movement immediately following it in the opposite direction; thus, any errors made while planning out the path can be corrected. Once the path has been planned out, click the Submit button to execute the realignment. The highlighted square will follow the designated path. If an incorrect step is encountered, an error message will appear and the filter state will reset, allowing you to attempt the realignment again. Once the filter has been properly realigned, the panel status will change to \status{BB} to indicate that no further actions are necessary.
 
 \subsection*{Life Support System}
 
