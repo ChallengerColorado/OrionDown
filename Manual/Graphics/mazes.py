@@ -18,7 +18,8 @@ def maze(vertical, horizontal, end):
     for i in range(8):
         for j in range(8):
             maze_fig.add_artist(mptch.Rectangle(
-                (i/8 + 1/16 - RECT_SIZE/2, j/8 + 1/16 - RECT_SIZE/2), RECT_SIZE, RECT_SIZE,
+                (i/8 + 1/16 - RECT_SIZE/2, j/8 + 1/16 - RECT_SIZE/2),
+                RECT_SIZE, RECT_SIZE,
                 edgecolor="black", fill=False, linewidth=2
                 ))
 
@@ -44,8 +45,8 @@ def maze(vertical, horizontal, end):
     return maze_fig
 
 
-maze_specs = {
-    "AE": {
+maze_specs = (
+    {  # 1
         "horizontal": (
             (1, 7), (2, 7), (4, 7),
             (3, 6), (4, 6), (5, 7), (6, 7),
@@ -63,15 +64,50 @@ maze_specs = {
             (1, 3), (6, 3),
             (2, 2), (3, 2), (5, 2), (6, 2),
             (2, 1), (4, 1), (5, 1), (7, 1)),
-        "end": (4, 5),
+        "end": (4, 5)
+    },
+    {  # 2
+        "horizontal": (
+            (1, 1),),
+        "vertical": (
+            (1, 1),),
+        "end": (1, 1)
+    },
+    {  # 3
+        "horizontal": (
+            (1, 1),),
+        "vertical": (
+            (1, 1),),
+        "end": (1, 1)
+    },
+    {  # 4
+        "horizontal": (
+            (1, 1),),
+        "vertical": (
+            (1, 1),),
+        "end": (1, 1)
+    },
+    {  # 5
+        "horizontal": (
+            (1, 1),),
+        "vertical": (
+            (1, 1),),
+        "end": (1, 1)
+    },
+    {  # 6
+        "horizontal": (
+            (1, 1),),
+        "vertical": (
+            (1, 1),),
+        "end": (1, 1)
     }
-}
+)
 
-for m in maze_specs:
+for m in range(len(maze_specs)):
 
     spec = maze_specs[m]
 
     maze(
         spec["horizontal"],
         spec["vertical"],
-        spec["end"]).savefig("Output/" + m + ".png")
+        spec["end"]).savefig("Output/" + str(m + 1) + ".png")
