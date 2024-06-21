@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \usepackage{tabularray}
+\usepackage{etoolbox}
 
 \geometry{letterpaper, margin=1in}
 
@@ -16,6 +17,22 @@
 \def\overview{\subsubsection*{Overview}}
 \def\instruc{\subsubsection*{Repair Instructions}}
 
+\newcommand{\status}[1]{\fbox{\texttt{#1}}}
+
+\newcommand{\maybedot}[2]{\ifstrequal{#1}{#2}{\textbullet}{}}
+\newcommand{\hstable}[2]{
+ \begin{tblr}{
+  hlines, vlines,
+  hline{2} = {2pt, solid},
+  rows = {0.5cm, m}, columns = {0.5cm,c},
+  cell{1}{1} = {r=1,c=3}{c}
+ }
+  #1 & & \\
+  \maybedot{#2}{1} & \maybedot{#2}{2} & \maybedot{#2}{3} \\
+  \maybedot{#2}{4} & \maybedot{#2}{5} & \maybedot{#2}{6}
+ \end{tblr}
+}
+
 \begin{document}
 
 \begin{titlepage}
@@ -29,6 +46,7 @@
 \end{titlepage}
 
 \section*{Introduction}
+
 Although everything possible is done beforehand to limit the possibility of the spacecraft being damaged during a mission, it is still a scenario that both the crew of the spacecraft and Mission Control must be prepared for. This manual has been written to assist Mission Control in guiding the astronauts through the progress of diagnosing and fixing issues that may arise with the Orion capsule.
 
 \subsection*{Time}
@@ -60,12 +78,19 @@ To repair the heat shield, it is necessary to regonfigure the six-block control 
 
 \instruc
 
-The heat shield interface has two parts: a display at the top and six buttons arranged in a grid. Multiple rounds of reconfiguration may be necessary. The display will show a word. In order to perform the reconfiguration, read the button corresponding to the word in the table below.
+The heat shield interface has two parts: a display at the top and six buttons arranged in a grid. Multiple rounds of reconfiguration may be necessary; if the heat shield has been damaged, the status indicator will display the number of rounds of reconfiguration necessary to fully repair it. The display will show a word. In order to perform the reconfiguration, read the button corresponding to the word in the table below.
 
+\begin{center}
+\begin{tblr}{
+ rows = {m}, columns = {c}
+}
+\hstable{a}{4} & \hstable{b}{1} & \hstable{c}{3} & \hstable{d}{5} \\
+\hstable{e}{0} & \hstable{f}{2} & \hstable{g}{3} & \hstable{h}{0} \\
+\hstable{i}{1} & \hstable{j}{4} & \hstable{k}{5} & \hstable{l}{2}
+\end{tblr}
+\end{center}
 
-Next, find the row in the table below corresponding to the word on the button read and press the button containing the first word that appears in the corresponding list.
-
-\vspace{2em}
+Next, find the row in the table below corresponding to the word on the button read and press the button containing the first word that appears in the corresponding list, and you will move to the next round.
 
 \begin{center}
 \begin{tblr}{
@@ -87,7 +112,7 @@ Next, find the row in the table below corresponding to the word on the button re
 \end{tblr}
 \end{center}
 
-\vspace{2em}
+Once all rounds have been completed, the status indicator will show the code \status{BB} to signal that no more rounds of reconfiguration and the heat shield has returned to proper functionality.
 
 \subsection*{Radiation Protection System}
 
@@ -107,8 +132,6 @@ Due to internal malfunctions and equipment damage, the life support configuratio
 
 On the panel, there are five letter displays laid out in a row, each surrounded on the top and bottom by buttons that can be used to cycle through the available letters for that display. There may be multiple rounds of settings to be confirmed. For each round, choose letters to spell out one of the words in the table below. Only one word will be possible to spell per round.
 
-\vspace{2em}
-
 \begin{center}
 \begin{tblr}{
  hlines, vlines,
@@ -119,8 +142,6 @@ On the panel, there are five letter displays laid out in a row, each surrounded 
 \end{tblr}
 \end{center}
 
-\vspace{2em}
-
-Once you have spelled the word on the letter displays, click the submit button to check whether the correct input was given and move onto the next round. Once all rounds have been completed, the status indicator will show the code \fbox{\ttfamily BB} to signal that the settings have all successfully been restored and the life support system is in working order.
+Once you have spelled the word on the letter displays, click the submit button to check whether the correct input was given and move onto the next round. Once all rounds have been completed, the status indicator will show the code \status{BB} to signal that the settings have all successfully been restored and the life support system is in working order.
 
 \end{document}
