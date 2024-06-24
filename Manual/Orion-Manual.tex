@@ -74,6 +74,29 @@ In order for the propulsion system to work properly, it is important to ensure t
 
 \instruc
 
+On the panel, there are two rows of sockets, each with eight sockets each. Above each socket in the upper row, there is a button that can be toggled between green and red, denoting the socket connection being activated and deactivated, respectively. At the bottom of the panel there is a submit button. Observe the Venn diagram and accompanying legend below. Each ellipse corresponds to a property of the wires on the panel. For each wire, determine which region the wire falls in. The unique letter in that region corresponds to whether the corresponding connection needs to be activated (Y) or deactivated (N).
+
+\begin{center}
+\begin{tblr}{
+ hlines,
+ vline{1} = {solid},
+ vline{3} = {solid},
+ rows = {m}, colspec = {Q[c]Q[l]}
+}
+ \includegraphics{ls 1} & Blue present on wire\\
+ \includegraphics{ls 2} & Upper socket is not directly above lower socket\\
+ \includegraphics{ls 3} & Upper socket is in left half of panel\\
+ \includegraphics{ls 4} & Red present on wire\\
+
+\end{tblr}
+\end{center}
+
+\begin{center}
+\includegraphics{venn-diagram}
+\end{center}
+
+Once you have activated and deactivated the connections appropriately, click the submit button to apply the new configuration. If the configuration is correct, the status indicator will show the code \status{BB} to indicate that the propulsion system is working properly and no further action is required. Take care when reconfiguring the propulsion system, as applying an improper configuration will further jeopardize the mission and shrink the window of time available before the mission must be called off.
+
 \subsection*{Heat Shield}
 
 \overview
