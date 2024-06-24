@@ -56,16 +56,16 @@ public class PropulsionModule : ModuleBehaviour
             {
                 (new WireSpec[]
                     {
-                        null,
                         new WireSpec(WireColor.Black, WireColor.Black, 1, true),
                         null,
                         null,
                         null,
+                        new WireSpec(WireColor.Blue, WireColor.White, 0, false),
                         null,
                         null,
                         new WireSpec(WireColor.Red, WireColor.Black, 2, false)
                     },
-                 new bool[] { false, false }),
+                 new bool[] { false, false, false }),
                 (new WireSpec[]
                     {
                         null,
@@ -74,10 +74,10 @@ public class PropulsionModule : ModuleBehaviour
                         new WireSpec(WireColor.Red, WireColor.Blue, 1, true),
                         null,
                         null,
-                        null,
+                        new WireSpec(WireColor.Black, WireColor.Black, 0, true),
                         null
                     },
-                 new bool[] { false, false })
+                 new bool[] { false, false, false })
             }
         },
         {  GameManager.Difficulty.Difficult, new (WireSpec[], bool[])[]
@@ -85,27 +85,27 @@ public class PropulsionModule : ModuleBehaviour
                 (new WireSpec[]
                     {
                         null,
-                        new WireSpec(WireColor.White, WireColor.White, 0, true),
+                        new WireSpec(WireColor.White, WireColor.White, 0, false),
                         null,
                         new WireSpec(WireColor.Black, WireColor.Red, 2, true),
                         null,
-                        null,
-                        null,
+                        new WireSpec(WireColor.Blue, WireColor.Blue, 1, false),
+                        new WireSpec(WireColor.White, WireColor.Blue, 0, true),
                         null
                     },
-                 new bool[] { false, false }),
+                 new bool[] { false, false, false, false }),
                 (new WireSpec[]
                     {
                         new WireSpec(WireColor.Blue, WireColor.Black, 0, true),
-                        null,
+                        new WireSpec(WireColor.White, WireColor.White, 1, true),
                         null,
                         new WireSpec(WireColor.White, WireColor.Red, 2, true),
                         null,
                         null,
                         null,
-                        null
+                        new WireSpec(WireColor.Black, WireColor.Black, 0, false)
                     },
-                 new bool[] { false, false })
+                 new bool[] { false, false, false, false })
             }
         }
     };
@@ -186,7 +186,7 @@ public class PropulsionModule : ModuleBehaviour
         if(complete){
         return;
         }
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < solution.Length; i++)
         {
             if (wires[i].state != solution[i]){
                 GameManager.Instance.GameTimer.RemainingSeconds-= 30;

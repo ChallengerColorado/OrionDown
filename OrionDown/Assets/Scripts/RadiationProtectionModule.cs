@@ -14,6 +14,8 @@ public class RadiationProtectionModule : ModuleBehaviour
     [SerializeField] public TMP_Text invalidText;
     [SerializeField] public TMP_Text resetText;
 
+    private List<string> statusText = new List<string>(){"AE","%4","8Þ","Ð!","Q§","<Y"};
+    private int mazeIndex = 0;
     private const float blinkDuration = .5f;
     private (int, int) blinkStartTile = (5, 5);
     private (int, int) _blinkTile;
@@ -50,24 +52,24 @@ public class RadiationProtectionModule : ModuleBehaviour
         Right
     }
 
-    private Dictionary<GameManager.Difficulty, List<(List<Move>, (int, int))>> presetPaths = new Dictionary<GameManager.Difficulty, List<(List<Move>, (int, int))>> ()
+    private Dictionary<GameManager.Difficulty, List<(List<Move>, (int, int), int)>> presetPaths = new Dictionary<GameManager.Difficulty, List<(List<Move>, (int, int), int)>> ()
     {
-        { GameManager.Difficulty.Easy, new List<(List<Move>, (int, int))> () // all paths for the easy mode
+        { GameManager.Difficulty.Easy, new List<(List<Move>, (int, int), int)> () // all paths for the easy mode
             {
-                ( new List<Move>() { Move.Left, Move.Up, Move.Left, Move.Down}, (4, 4)), // each possible path as a (Moves, startPosition) tuple
-                (new List<Move>() { Move.Up, Move.Up, Move.Left, Move.Down}, (1, 1))
+                ( new List<Move>() { Move.Up, Move.Right, Move.Down, Move.Right, Move.Down, Move.Right}, (0, 5), 0), // each possible path as a (Moves, startPosition) tuple
+                (new List<Move>() { Move.Down, Move.Right, Move.Down, Move.Left, Move.Down, Move.Left}, (6, 7), 1)
             }
         },
-        { GameManager.Difficulty.Medium, new List<(List<Move>, (int, int))> ()
+        { GameManager.Difficulty.Medium, new List<(List<Move>, (int, int), int)> ()
             {
-                ( new List<Move>() { Move.Right, Move.Up, Move.Up, Move.Right, Move.Down, Move.Right }, (3, 1)),
-                ( new List<Move>() { Move.Down, Move.Left, Move.Down, Move.Left, Move.Up, Move.Up }, (2, 6))
+                ( new List<Move>() { Move.Up, Move.Right, Move.Up, Move.Right, Move.Right, Move.Down, Move.Down, Move.Right, Move.Right }, (0, 0), 2),
+                ( new List<Move>() { Move.Right, Move.Up, Move.Left, Move.Left, Move.Down, Move.Left, Move.Up, Move.Up, Move.Left, Move.Up }, (5, 3), 3)
             }
         },
-        { GameManager.Difficulty.Difficult, new List<(List<Move>, (int, int))> ()
+        { GameManager.Difficulty.Difficult, new List<(List<Move>, (int, int), int)> ()
             {
-                ( new List<Move>() { Move.Up, Move.Right, Move.Right, Move.Down, Move.Right, Move.Down, Move.Left, Move.Left }, (4, 2)),
-                ( new List<Move>() { Move.Up, Move.Right, Move.Right, Move.Down, Move.Right, Move.Down, Move.Left, Move.Left }, (5, 3))
+                ( new List<Move>() { Move.Down, Move.Right, Move.Down, Move.Right, Move.Up, Move.Up, Move.Up, Move.Right, Move.Up, Move.Right, Move.Up, Move.Left, Move.Up, Move.Right, Move.Right }, (2, 3), 4),
+                ( new List<Move>() { Move.Up, Move.Left, Move.Left, Move.Left, Move.Down, Move.Left, Move.Down, Move.Right, Move.Down, Move.Down, Move.Right, Move.Down, Move.Left, Move.Left, Move.Up }, (7, 6), 5)
             }
         }
     };
@@ -83,14 +85,15 @@ public class RadiationProtectionModule : ModuleBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        List<(List<Move>, (int, int))> possiblePaths = presetPaths[GameManager.Instance.currentDifficulty];
+        List<(List<Move>, (int, int), int)> possiblePaths = presetPaths[GameManager.Instance.currentDifficulty];
 
-        (List<Move>, (int, int)) chosenPath = possiblePaths[random.Next(possiblePaths.Count)];
+        (List<Move>, (int, int), int) chosenPath = possiblePaths[random.Next(possiblePaths.Count)];
         mazeSolution = chosenPath.Item1;
         blinkStartTile = chosenPath.Item2;
+        mazeIndex = chosenPath.Item3;
 
         BlinkTile = blinkStartTile;
-        SetStatus(false, "}�");
+        SetStatus(false, statusText[mazeIndex]);
     }
     public void MazePositioningSystem(Move lastmove){
         if (mazepath.Count() == 0){
