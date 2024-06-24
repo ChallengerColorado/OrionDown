@@ -20,7 +20,7 @@ public class LifeSupportModule : ModuleBehaviour
         new char[6]
     };
 
-    private static char[] alphabet = new char[] {'a','b','c','d','e','h','i','j','k','l','n','q','r','s','t','u','v','w','y','z'};
+    private static char[] alphabet = new char[] {'a','b','c','d','e','h','i','j','k','l','n','q','s','t','u','v','y','y'};
     private static string[] words = {
         "orion",
         "orbit",
@@ -31,7 +31,17 @@ public class LifeSupportModule : ModuleBehaviour
         "after",
         "again",
         "below",
-        "right" 
+        "bezel",
+        "write",
+        "right",
+        "sound",
+        "point",
+        "there",
+        "their",
+        "world",
+        "soyuz",
+        "learn",
+        "would"
     };
 
 
