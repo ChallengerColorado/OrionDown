@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
-using UnityEditor.Overlays;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +17,8 @@ public class PropulsionModule : ModuleBehaviour
     private Dictionary<WireColor, Material> colorMaterials;
 
     private List<int> buttonToWire = new List<int>();
+    
+    private bool complete = false;
 
     
     //dificulty system
@@ -176,20 +178,24 @@ public class PropulsionModule : ModuleBehaviour
     {
         if(buttonToWire.Contains(position)){
         wires[buttonToWire.IndexOf(position)].state = !wires[buttonToWire.IndexOf(position)].state;
-        Debug.Log("Wire state" + buttonToWire.IndexOf(position) + wires[buttonToWire.IndexOf(position)].state);;
-        CheckWires();}
+        }
     }
 
-    private void CheckWires()
+    public void CheckWires()
     {
+        if(complete){
+        return;
+        }
         for (int i = 0; i < 2; i++)
         {
-            if (wires[i].state != solution[i])
-                return;
+            if (wires[i].state != solution[i]){
+                GameManager.Instance.GameTimer.RemainingSeconds-= 30;
+                return;}
+                
         }
 
         SetStatus(true, "BB");
-
+        complete = true;
     }
 
     private void InitializeWires() {
@@ -259,5 +265,4 @@ public class PropulsionModule : ModuleBehaviour
             Debug.Log("Position: " + gameObject.transform.position);
         }
     }
-
 }

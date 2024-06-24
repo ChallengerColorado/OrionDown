@@ -40,18 +40,20 @@ public class ModuleLoaderBehavior : MonoBehaviour
             chosenPositions.Add(availablePositions[newIndex]);
             availablePositions.RemoveAt(newIndex);
         }
-        int count = 0;
         int newIndex2;
         for (int i = 0; i < modulePrefabs.Length; i++){
         prefabIndicies.Add(i);
         }
         foreach (Transform t in chosenPositions)
         {
-            if (count++<4){
+            if (prefabIndicies.Count == 0){
+                for (int j = 0; j < modulePrefabs.Length; j++){
+                prefabIndicies.Add(j);
+                }
+            }
             newIndex2 = random.Next(prefabIndicies.Count);
             Instantiate(modulePrefabs[prefabIndicies[newIndex2]], t);
             prefabIndicies.RemoveAt(newIndex2);
-            }
         }
     }
 }

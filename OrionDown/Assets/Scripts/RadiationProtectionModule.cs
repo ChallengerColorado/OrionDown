@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 using System.Collections.Specialized;
-using UnityEditorInternal;
 
 public class RadiationProtectionModule : ModuleBehaviour
 {
@@ -91,7 +90,7 @@ public class RadiationProtectionModule : ModuleBehaviour
         blinkStartTile = chosenPath.Item2;
 
         BlinkTile = blinkStartTile;
-        SetStatus(false, "}·");
+        SetStatus(false, "}ï¿½");
     }
     public void MazePositioningSystem(Move lastmove){
         if (mazepath.Count() == 0){

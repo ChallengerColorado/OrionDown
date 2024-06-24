@@ -16,7 +16,6 @@ public class RadiationProtectionButton : MonoBehaviour
     }
     public void OnButtonPress() {
         m_mazescript.MazePositioningSystem(lastmove);
-        Debug.Log("3");
     }
     // Update is called once per frame
     void Update()
