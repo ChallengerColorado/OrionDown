@@ -111,9 +111,9 @@ The heat shield interface has two parts: a display at the top and six buttons ar
 \begin{tblr}{
  rows = {m}, columns = {c}
 }
-\hstable{a}{4} & \hstable{b}{1} & \hstable{c}{3} & \hstable{d}{5} \\
-\hstable{e}{0} & \hstable{f}{2} & \hstable{g}{3} & \hstable{h}{0} \\
-\hstable{i}{1} & \hstable{j}{4} & \hstable{k}{5} & \hstable{l}{2}
+\hstable{right}{4} & \hstable{soyuz}{1} & \hstable{orbit}{3} & \hstable{optic}{5} \\
+\hstable{their}{0} & \hstable{world}{2} & \hstable{would}{3} & \hstable{bezel}{0} \\
+\hstable{oxide}{1} & \hstable{write}{4} & \hstable{there}{5} & \hstable{orion}{2}
 \end{tblr}
 \end{center}
 
@@ -124,18 +124,18 @@ Next, find the row in the table below corresponding to the word on the button re
  hlines, vlines,
  rows = {m}, colspec = {Q[c]Q[l]}
 }
- a & f, h, j, l \\
- b & h, c, a, d \\
- c & b, g, a, e \\
- d & i, f, e, j \\
- e & d, l, h, k \\
- f & g, i, c, f \\
- g & l, j, f, a \\
- h & d, c, b, g \\
- i & j, a, i, b \\
- j & e, f, k, c \\
- k & f, d, k, h \\
- l & c, e, b, a
+ right & world, bezel, write, orion \\
+ soyuz & bezel, orbit, right, optic \\
+ orbit & soyuz, would, right, their \\
+ optic & oxide, world, their, write \\
+ their & optic, orion, bezel, there \\
+ world & would, oxide, orbit, world \\
+ would & orion, write, world, right \\
+ bezel & optic, orbit, soyuz, would \\
+ oxide & write, right, oxide, soyuz \\
+ write & their, world, there, orbit \\
+ there & world, optic, there, bezel \\
+ orion & orbit, their, soyuz, right
 \end{tblr}
 \end{center}
 
