@@ -36,7 +36,7 @@ public class LifeSupportModule : ModuleBehaviour
         "right",
         "sound",
         "point",
-        "there"
+        "there",
         "their",
         "world",
         "soyuz",
