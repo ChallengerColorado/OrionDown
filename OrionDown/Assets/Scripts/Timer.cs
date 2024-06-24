@@ -5,8 +5,8 @@ using UnityEngine;
 public sealed class Timer
 {
 
-    public int TotalSeconds { get; private set; }
-    public int RemainingSeconds { get; private set; }
+    public int TotalSeconds;
+    public int RemainingSeconds;
 
     private bool paused = false;
 

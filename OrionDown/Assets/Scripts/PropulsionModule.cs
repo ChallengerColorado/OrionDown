@@ -178,19 +178,20 @@ public class PropulsionModule : ModuleBehaviour
     {
         if(buttonToWire.Contains(position)){
         wires[buttonToWire.IndexOf(position)].state = !wires[buttonToWire.IndexOf(position)].state;
-        // Debug.Log("Wire state" + buttonToWire.IndexOf(position) + wires[buttonToWire.IndexOf(position)].state);
-        CheckWires();}
+        }
     }
 
-    private void CheckWires()
+    public void CheckWires()
     {
         if(complete){
         return;
         }
         for (int i = 0; i < 2; i++)
         {
-            if (wires[i].state != solution[i])
-                return;
+            if (wires[i].state != solution[i]){
+                GameManager.Instance.GameTimer.RemainingSeconds-= 30;
+                return;}
+                
         }
 
         SetStatus(true, "BB");
