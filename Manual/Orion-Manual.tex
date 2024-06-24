@@ -1,5 +1,6 @@
-\documentclass[12pt, draft]{article}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{geometry}
 \usepackage{tabularray}
 \usepackage{etoolbox}
@@ -9,6 +10,8 @@
 
 \renewcommand{\familydefault}{\sfdefault}
 \frenchspacing
+
+\graphicspath{{./Graphics/Output/}}
 
 \pagestyle{myheadings}
 \markright{Orion Capsule Repair Manual}
@@ -33,17 +36,6 @@
   \maybedot{#2}{4} & \maybedot{#2}{5} & \maybedot{#2}{6}
  \end{tblr}
 }
-
-\iffalse
-\newcommand{radtable}[2]{
- \begin{tblr}{
-  rows = {m}, columns = {c},
- }
-  \status{#1} \\
-  \includegraphics[width=3cm]{#2}
- \end{tblr}
-}
-\fi
 
 \begin{document}
 
@@ -82,6 +74,29 @@ In order for the propulsion system to work properly, it is important to ensure t
 
 \instruc
 
+On the panel, there are two rows of sockets, each with eight sockets each. Above each socket in the upper row, there is a button that can be toggled between green and red, denoting the socket connection being activated and deactivated, respectively. At the bottom of the panel there is a submit button. Observe the Venn diagram and accompanying legend below. Each ellipse corresponds to a property of the wires on the panel. For each wire, determine which region the wire falls in. The unique letter in that region corresponds to whether the corresponding connection needs to be activated (Y) or deactivated (N).
+
+\begin{center}
+\begin{tblr}{
+ hlines,
+ vline{1} = {solid},
+ vline{3} = {solid},
+ rows = {m}, colspec = {Q[c]Q[l]}
+}
+ \includegraphics{ls 1} & Blue present on wire\\
+ \includegraphics{ls 2} & Upper socket is not directly above lower socket\\
+ \includegraphics{ls 3} & Upper socket is in left half of panel\\
+ \includegraphics{ls 4} & Red present on wire\\
+
+\end{tblr}
+\end{center}
+
+\begin{center}
+\includegraphics{venn-diagram}
+\end{center}
+
+Once you have activated and deactivated the connections appropriately, click the submit button to apply the new configuration. If the configuration is correct, the status indicator will show the code \status{BB} to indicate that the propulsion system is working properly and no further action is required. Take care when reconfiguring the propulsion system, as applying an improper configuration will further jeopardize the mission and shrink the window of time available before the mission must be called off.
+
 \subsection*{Heat Shield}
 
 \overview
@@ -96,9 +111,9 @@ The heat shield interface has two parts: a display at the top and six buttons ar
 \begin{tblr}{
  rows = {m}, columns = {c}
 }
-\hstable{a}{4} & \hstable{b}{1} & \hstable{c}{3} & \hstable{d}{5} \\
-\hstable{e}{0} & \hstable{f}{2} & \hstable{g}{3} & \hstable{h}{0} \\
-\hstable{i}{1} & \hstable{j}{4} & \hstable{k}{5} & \hstable{l}{2}
+\hstable{right}{4} & \hstable{soyuz}{1} & \hstable{orbit}{3} & \hstable{optic}{5} \\
+\hstable{their}{0} & \hstable{world}{2} & \hstable{would}{3} & \hstable{bezel}{0} \\
+\hstable{oxide}{1} & \hstable{write}{4} & \hstable{there}{5} & \hstable{orion}{2}
 \end{tblr}
 \end{center}
 
@@ -109,18 +124,18 @@ Next, find the row in the table below corresponding to the word on the button re
  hlines, vlines,
  rows = {m}, colspec = {Q[c]Q[l]}
 }
- a & f, h, j, l \\
- b & h, c, a, d \\
- c & b, g, a, e \\
- d & i, f, e, j \\
- e & d, l, h, k \\
- f & g, i, c, f \\
- g & l, j, f, a \\
- h & d, c, b, g \\
- i & j, a, i, b \\
- j & e, f, k, c \\
- k & f, d, k, h \\
- l & c, e, b, a
+ right & world, bezel, write, orion \\
+ soyuz & bezel, orbit, right, optic \\
+ orbit & soyuz, would, right, their \\
+ optic & oxide, world, their, write \\
+ their & optic, orion, bezel, there \\
+ world & would, oxide, orbit, world \\
+ would & orion, write, world, right \\
+ bezel & optic, orbit, soyuz, would \\
+ oxide & write, right, oxide, soyuz \\
+ write & their, world, there, orbit \\
+ there & world, optic, there, bezel \\
+ orion & orbit, their, soyuz, right
 \end{tblr}
 \end{center}
 
@@ -136,7 +151,18 @@ Due to the extreme forces incurred by the spacecraft during flight, the radiatio
 
 On the control panel, a grid is displayed with four buttons below it, each with an arrow facing a different direction. There is also a Submit button below these. One square in the grid will be highlighted; this square represents the current orientation of the control filter. Use the panel status to determine the layout of the filter space according to the diagram below. The target position of the filter in each layout is marked with a dot. The lines between the spaces represent the movement contstraints of the filter; they can be treated as barriers that the filters path cannot cross.
 
-% \radtable{AE}{image}
+\begin{center}
+\begin{tblr}{
+ rows = {m}, columns = {c},
+ colsep = 4pt
+}
+ \status{AE} & \status{\%4} & \status{8\TH}\\
+ \includegraphics[width=2in]{1} & \includegraphics[width=2in]{2} & \includegraphics[width=2in]{3}\\
+ \status{Ð!} & \status{Q\S} & \status{\textless Y}\\
+ \includegraphics[width=2in]{4} & \includegraphics[width=2in]{5} & \includegraphics[width=2in]{6}
+
+\end{tblr}
+\end{center}
 
 To realign the radiation control filter, use the buttons below the grid to plan out a path for the radiation control filter to return to the target state from the starting state. A movement in one direction will be canceled out by a movement immediately following it in the opposite direction; thus, any errors made while planning out the path can be corrected. Once the path has been planned out, click the Submit button to execute the realignment. The highlighted square will follow the designated path. If an incorrect step is encountered, an error message will appear and the filter state will reset, allowing you to attempt the realignment again. Once the filter has been properly realigned, the panel status will change to \status{BB} to indicate that no further actions are necessary.
 
