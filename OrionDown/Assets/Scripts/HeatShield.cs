@@ -24,36 +24,36 @@ public class HeatShield : ModuleBehaviour
     private System.Random random = new System.Random();
 
     // Pool of words to choose from
-    private static string[] words = new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l" };
+    private static string[] words = new string[] { "right", "soyuz", "orbit", "optic", "their", "world", "would", "bezel", "oxide", "write", "there", "orion" };
     // Maps the word read off of a button to the corresponding list of words
     private static Dictionary<string, string[]> wordLists = new Dictionary<string, string[]>() {
-        { "a", new string[] { "f", "h", "j", "l"} },
-        { "b", new string[] { "h", "c", "a", "d"} },
-        { "c", new string[] { "b", "g", "a", "e"} },
-        { "d", new string[] { "i", "f", "e", "j"} },
-        { "e", new string[] { "d", "l", "h", "k"} },
-        { "f", new string[] { "g", "i", "c", "f"} },
-        { "g", new string[] { "l", "j", "f", "a"} },
-        { "h", new string[] { "d", "c", "b", "g"} },
-        { "i", new string[] { "j", "a", "i", "b"} },
-        { "j", new string[] { "e", "f", "k", "c"} },
-        { "k", new string[] { "f", "d", "k", "h"} },
-        { "l", new string[] { "c", "e", "b", "a"} },
+        { "right", new string[] { "world", "bezel", "write", "orion"} },
+        { "soyuz", new string[] { "bezel", "orbit", "right", "optic"} },
+        { "orbit", new string[] { "soyuz", "would", "right", "their"} },
+        { "optic", new string[] { "oxide", "world", "their", "write"} },
+        { "their", new string[] { "optic", "orion", "bezel", "there"} },
+        { "world", new string[] { "would", "oxide", "orbit", "world"} },
+        { "would", new string[] { "orion", "write", "world", "right"} },
+        { "bezel", new string[] { "optic", "orbit", "soyuz", "would"} },
+        { "oxide", new string[] { "write", "right", "oxide", "soyuz"} },
+        { "write", new string[] { "their", "world", "there", "orbit"} },
+        { "there", new string[] { "world", "optic", "there", "bezel"} },
+        { "orion", new string[] { "orbit", "their", "soyuz", "right"} },
     };
     // Maps the word being displayed to the index of the button to read
     private static Dictionary<string, int> buttonToRead = new Dictionary<string, int>() {
-        { "a", 4 },
-        { "b", 1 },
-        { "c", 3 },
-        { "d", 5 },
-        { "e", 0 },
-        { "f", 2 },
-        { "g", 3 },
-        { "h", 0 },
-        { "i", 1 },
-        { "j", 4 },
-        { "k", 5 },
-        { "l", 2 },
+        { "right", 4 },
+        { "soyuz", 1 },
+        { "orbit", 3 },
+        { "optic", 5 },
+        { "their", 0 },
+        { "world", 2 },
+        { "would", 3 },
+        { "bezel", 0 },
+        { "oxide", 1 },
+        { "write", 4 },
+        { "there", 5 },
+        { "orion", 2 },
     };
 
     private int buttonToPressIndex;
