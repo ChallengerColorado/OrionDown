@@ -37,7 +37,7 @@ public class PropulsionModule : ModuleBehaviour
                         null,
                         null
                     },
-                 new bool[] { false, false }),
+                 new bool[] { false, true }),
                 (new WireSpec[] 
                     {
                         null,
@@ -49,7 +49,7 @@ public class PropulsionModule : ModuleBehaviour
                         null,
                         new WireSpec(WireColor.White, WireColor.Black, 0, true)
                     },
-                 new bool[] { false, false })
+                 new bool[] { false, true })
             }
         },
         {  GameManager.Difficulty.Medium, new (WireSpec[], bool[])[]
@@ -65,7 +65,7 @@ public class PropulsionModule : ModuleBehaviour
                         null,
                         new WireSpec(WireColor.Red, WireColor.Black, 2, false)
                     },
-                 new bool[] { false, false, false }),
+                 new bool[] { true, false, true }),
                 (new WireSpec[]
                     {
                         null,
@@ -77,7 +77,7 @@ public class PropulsionModule : ModuleBehaviour
                         new WireSpec(WireColor.Black, WireColor.Black, 0, true),
                         null
                     },
-                 new bool[] { false, false, false })
+                 new bool[] { true, true, true })
             }
         },
         {  GameManager.Difficulty.Difficult, new (WireSpec[], bool[])[]
@@ -93,7 +93,7 @@ public class PropulsionModule : ModuleBehaviour
                         new WireSpec(WireColor.White, WireColor.Blue, 0, true),
                         null
                     },
-                 new bool[] { false, false, false, false }),
+                 new bool[] { true, true, false, false }),
                 (new WireSpec[]
                     {
                         new WireSpec(WireColor.Blue, WireColor.Black, 0, true),
@@ -105,7 +105,7 @@ public class PropulsionModule : ModuleBehaviour
                         null,
                         new WireSpec(WireColor.Black, WireColor.Black, 0, false)
                     },
-                 new bool[] { false, false, false, false })
+                 new bool[] { false, true, true, true })
             }
         }
     };
