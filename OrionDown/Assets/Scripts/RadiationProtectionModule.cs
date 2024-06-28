@@ -140,7 +140,6 @@ public class RadiationProtectionModule : ModuleBehaviour
         if (GetStatus())
             yield break;
 
-        blink.gameObject.SetActive(true);
         yield return new WaitForSeconds(blinkDuration);
 
         foreach (var movePair in ZipPaths(mazepath, mazeSolution))
@@ -179,6 +178,7 @@ public class RadiationProtectionModule : ModuleBehaviour
         resetText.gameObject.SetActive(true);
         yield return new WaitForSeconds(resetTextDuration);
         resetText.gameObject.SetActive(false);
+        blink.gameObject.SetActive(true);
     }
 
     private void MoveBlink(Move m)
