@@ -55,8 +55,6 @@ public sealed class GameManager : MonoBehaviour
     }
     public void StartGame(Difficulty difficulty)
     {
-        Debug.Log("Start with difficulty: " + difficulty.ToString());
-
         currentDifficulty = difficulty;
 
         SceneManager.LoadScene(1);
@@ -67,10 +65,8 @@ public sealed class GameManager : MonoBehaviour
 
     public void ModuleFixed(){
         modulesBroken -= 1;
-        Debug.Log(modulesBroken);
         if (modulesBroken < 1){
             StopGame(true, true);
-            Debug.Log("Hooray");
         }
     }
     public void PauseGame()

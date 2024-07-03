@@ -131,13 +131,6 @@ public class PropulsionModule : ModuleBehaviour
             transform.Find("Module Base/Top_Socket_7")
         };
 
-        Debug.Log(topSockets);
-
-        foreach (var t in topSockets)
-        {
-            Debug.Log(t.ToString());
-        }
-
         smoothWirePrefabs = new GameObject[]
         {
             Resources.Load<GameObject>("Wires/Smooth 1"),
@@ -199,8 +192,6 @@ public class PropulsionModule : ModuleBehaviour
     }
 
     private void InitializeWires() {
-        Debug.Log("Initializing wires...");
-
         for (int i = 0; i < layout.Length; i++) {
             if (layout[i] != null){
                 wires.Add(new Wire(layout[i], topSockets[i], this));
@@ -241,7 +232,6 @@ public class PropulsionModule : ModuleBehaviour
 
         public Wire(WireSpec spec, Transform parent, PropulsionModule module)
         {
-            Debug.Log("Making wire: " + parent);
             this.spec = spec;
 
             if (spec.color1 == spec.color2)
@@ -261,8 +251,6 @@ public class PropulsionModule : ModuleBehaviour
 
             if (spec.reversed)
                 gameObject.transform.localScale = Vector3.Scale(gameObject.transform.localScale, new Vector3(-1, 1, 1));
-
-            Debug.Log("Position: " + gameObject.transform.position);
         }
     }
 }

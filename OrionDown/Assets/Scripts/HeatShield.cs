@@ -82,7 +82,6 @@ public class HeatShield : ModuleBehaviour
         // The word appearing on the button that the user must read
         int wordForListIndex = random.Next(words.Length);
         string wordForList = words[wordForListIndex];
-        Debug.Log(wordForList);
 
         // The word appearing on the button that the user must press
         string[] list = wordLists[wordForList];
@@ -132,8 +131,6 @@ public class HeatShield : ModuleBehaviour
             buttonWordIndexList.RemoveAt(nextItemIndex);
         }
 
-        //foreach (var i in shuffledButtonWordIndices) Debug.Log(i);
-
         // Get the actual words associated with the indices in shuffledButtonWordIndices and assign them to the buttons
         for (int i = 0; i < 6; i++)
         {
@@ -150,8 +147,6 @@ public class HeatShield : ModuleBehaviour
                 }
             }
         }
-
-        Debug.Log("Target button: " + buttonToPressIndex);
 
         // Button to be read
         int buttonToReadIndex = 0;
@@ -177,8 +172,6 @@ public class HeatShield : ModuleBehaviour
 
     void ButtonPress(int buttonIndex)
     {
-        Debug.Log("Button: " + buttonIndex);
-
         if (buttonIndex == buttonToPressIndex)
         {
             if (--remainingRounds == 0)

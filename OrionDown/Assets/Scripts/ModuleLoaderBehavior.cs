@@ -31,7 +31,6 @@ public class ModuleLoaderBehavior : MonoBehaviour
 
     private void CreateModules(int number)
     {
-        Debug.Log("CreateModules");
         List<Transform> availablePositions = new List<Transform>(presetModulePositions);
         List<Transform> chosenPositions = new List<Transform>();
 

@@ -110,15 +110,6 @@ public class RadiationProtectionModule : ModuleBehaviour
 
     public void MazeEnd(){
         StartCoroutine(VerifyPath());
-
-        /*if (mazepath.SequenceEqual(mazeSolution)){
-            //mazeIsFixed = true;
-            Debug.Log("Hooray");
-            Status = true;
-        }
-        else{
-            mazepath.Clear();
-        }*/
     }
     // Update is called once per frame
     void Update()
@@ -208,8 +199,6 @@ public class RadiationProtectionModule : ModuleBehaviour
         IEnumerator secondEnumerator = second.GetEnumerator();
 
         List<Tuple<Move?,Move?>> list = new List<Tuple<Move?, Move?>>();
-
-        //Debug.Log("first: " + firstEnumerator);   
 
         bool firstNext = firstEnumerator.MoveNext();
         bool secondNext = secondEnumerator.MoveNext();
