@@ -14,6 +14,8 @@ public class CapsuleCameraSwitch : MonoBehaviour
     private CinemachineVirtualCamera vcam3;
     private GameObject vcam4Object;
     private CinemachineVirtualCamera vcam4;
+    private GameObject vcam5Object;
+    private CinemachineVirtualCamera vcam5;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,8 @@ public class CapsuleCameraSwitch : MonoBehaviour
         vcam3 = vcam3Object.GetComponent<CinemachineVirtualCamera>();
         vcam4Object = GameObject.Find("Heat Shield(Clone)/Heat Shield Camera");
         vcam4 = vcam4Object.GetComponent<CinemachineVirtualCamera>();
+        vcam5Object = GameObject.Find("Keypad(Clone)/Keypad Camera");
+        vcam5 = vcam5Object.GetComponent<CinemachineVirtualCamera>();
 
         capsuleCamera.m_Priority = 11;
 
@@ -35,11 +39,12 @@ public class CapsuleCameraSwitch : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-        vcam1.m_Priority = 10;
-        vcam2.m_Priority = 10;
-        vcam3.m_Priority = 10;
-        vcam4.m_Priority = 10;
-        capsuleCamera.m_Priority = 11;
-    }
+            vcam1.m_Priority = 10;
+            vcam2.m_Priority = 10;
+            vcam3.m_Priority = 10;
+            vcam4.m_Priority = 10;
+            vcam5.m_Priority = 10;
+            capsuleCamera.m_Priority = 11;
+        }
     }
 }

@@ -22,10 +22,11 @@ public class ModuleLoaderBehavior : MonoBehaviour
             Resources.Load<GameObject>("Modules/Propulsion"),
             Resources.Load<GameObject>("Modules/Radiation Protection"),
             Resources.Load<GameObject>("Modules/Life Support"),
-            Resources.Load<GameObject>("Modules/Heat Shield")
+            Resources.Load<GameObject>("Modules/Heat Shield"),
+            Resources.Load<GameObject>("Modules/Keypad")
         };
 
-        CreateModules(4);
+        CreateModules(5);
     }
 
     private void CreateModules(int number)
