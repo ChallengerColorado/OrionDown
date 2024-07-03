@@ -144,29 +144,7 @@
   ]
 )
 
-/*
 // 18
-#page(
-  align(center + horizon)[
-    #str.from-unicode(61975)
-  ]
-)
-
-// 19
-#page(
-  align(center + horizon)[
-    #str.from-unicode(42868)
-  ]
-)
-
-// 20
-#page(
-  align(center + horizon)[
-    #str.from-unicode(8368)
-  ]
-)
-
-// 21
 #page(
   align(center + horizon)[
     #set text(size: 2.6cm, baseline: -.12em)
@@ -174,80 +152,18 @@
   ]
 )
 
-// 22
+// 19
 #page(
   align(center + horizon)[
-    r
-  ]
-)
-
-// 23
-#page(
-  align(center + horizon)[
-    #str.from-unicode(61845)
-  ]
-)
-
-// 24
-#page(
-  align(center + horizon)[
-    #str.from-unicode(61754)
-  ]
-)
-
-// 25
-#page(
-  align(center + horizon)[
-    #str.from-unicode(61661)
-  ]
-)
-
-// 26
-#page(
-  align(center + horizon)[
+    #set text(size: 3.5cm, baseline: -.01em)
     #str.from-unicode(61660)
   ]
 )
 
-// 27
+// 20
 #page(
   align(center + horizon)[
-    #str.from-unicode(61657)
-  ]
-)
-
-// 28
-#page(
-  align(center + horizon)[
-    #str.from-unicode(61675)
-  ]
-)
-
-// 29
-#page(
-  align(center + horizon)[
-    #str.from-unicode(61674)
-  ]
-)
-
-// 30
-#page(
-  align(center + horizon)[
+    #set text(size: 3.3cm, baseline: .03em)
     #str.from-unicode(61673)
   ]
 )
-*/
-
-/*
-#page(
-  align(center + horizon)[
-    #str.from-unicode()
-  ]
-)
-
-#page(
-  align(center + horizon)[
-    #str.from-unicode()
-  ]
-)
-*/
