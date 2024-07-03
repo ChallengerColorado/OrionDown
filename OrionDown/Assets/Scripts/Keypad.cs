@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Keypad : ModuleBehaviour
 {
+
+    [SerializeField] public Image[] buttonImages;
 
     private System.Random random = new System.Random();
 
@@ -42,6 +45,8 @@ public class Keypad : ModuleBehaviour
             symbolsUsed.Add(symbols[newindex]);
             symbols.RemoveAt(newindex);
         }
+
+
     }
     private void ButtonPress(int buttonIndex) {
         buttonIndices.Add(buttonIndex);
