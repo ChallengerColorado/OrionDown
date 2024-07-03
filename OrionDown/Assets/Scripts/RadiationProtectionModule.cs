@@ -14,7 +14,7 @@ public class RadiationProtectionModule : ModuleBehaviour
     [SerializeField] public TMP_Text invalidText;
     [SerializeField] public TMP_Text resetText;
 
-    private List<string> statusText = new List<string>(){"AE","%4","8Þ","Ð!","Q§","<Y"};
+    private List<string> statuses = new List<string>(){"AE","%4","8Þ","Ð!","Q§","<Y"};
     private int mazeIndex = 0;
     private const float blinkDuration = .5f;
     private (int, int) blinkStartTile = (5, 5);
@@ -93,7 +93,7 @@ public class RadiationProtectionModule : ModuleBehaviour
         mazeIndex = chosenPath.Item3;
 
         BlinkTile = blinkStartTile;
-        SetStatus(false, statusText[mazeIndex]);
+        SetStatus(false, statuses[mazeIndex]);
     }
     public void MazePositioningSystem(Move lastmove){
         if (mazepath.Count() == 0){
