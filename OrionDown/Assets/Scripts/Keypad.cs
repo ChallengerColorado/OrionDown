@@ -51,7 +51,6 @@ public class Keypad : ModuleBehaviour
 
             buttonImages[i].color = Color.white;
             buttonImages[i].texture = Resources.Load<Texture2D>("Symbols/" + symbolsUsed[i].ToString("D2"));
-            //Debug.Log("Symbols/" + symbolsUsed[i].ToString("D2"));
         }
     }
     public void ButtonPress(int buttonIndex) {
@@ -71,8 +70,6 @@ public class Keypad : ModuleBehaviour
         for (int i = 0; i < 4; i++){
 
             int nextButtonIndex = allSymbols[symbolIndex].FindIndex(symbolsUsed[buttonIndices[i]].Equals);
-
-            Debug.Log("Temp: " + tempIndex + ", Search: " + nextButtonIndex);
 
             if (tempIndex > nextButtonIndex)
             {
