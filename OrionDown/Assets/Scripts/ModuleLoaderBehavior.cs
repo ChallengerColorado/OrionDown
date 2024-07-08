@@ -14,6 +14,8 @@ public class ModuleLoaderBehavior : MonoBehaviour
 
     private static List<int> prefabIndicies = new List<int>();  
 
+    public static List<int> usedModules = new List<int>();  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class ModuleLoaderBehavior : MonoBehaviour
             Resources.Load<GameObject>("Modules/Keypad")
         };
 
-        CreateModules(5);
+        CreateModules(4);
     }
 
     private void CreateModules(int number)
@@ -53,6 +55,7 @@ public class ModuleLoaderBehavior : MonoBehaviour
             }
             newIndex2 = random.Next(prefabIndicies.Count);
             Instantiate(modulePrefabs[prefabIndicies[newIndex2]], t);
+            usedModules.Add(prefabIndicies[newIndex2]);
             prefabIndicies.RemoveAt(newIndex2);
         }
     }

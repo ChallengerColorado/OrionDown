@@ -7,43 +7,44 @@ public class CapsuleCameraSwitch : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera capsuleCamera;
     private GameObject vcam1Object;
-    private CinemachineVirtualCamera vcam1;
     private GameObject vcam2Object;
-    private CinemachineVirtualCamera vcam2;
     private GameObject vcam3Object;
-    private CinemachineVirtualCamera vcam3;
     private GameObject vcam4Object;
-    private CinemachineVirtualCamera vcam4;
     private GameObject vcam5Object;
-    private CinemachineVirtualCamera vcam5;
+
+    private static List<CinemachineVirtualCamera> cams = new List<CinemachineVirtualCamera>();
 
     // Start is called before the first frame update
     void Start()
     {
         vcam1Object = GameObject.Find("Propulsion(Clone)/Propulsion Camera");
-        vcam1 = vcam1Object.GetComponent<CinemachineVirtualCamera>();
+        if (vcam1Object != null)
+        cams.Add(vcam1Object.GetComponent<CinemachineVirtualCamera>());
         vcam2Object = GameObject.Find("Radiation Protection(Clone)/Radiation Protection Camera");
-        vcam2 = vcam2Object.GetComponent<CinemachineVirtualCamera>();
+        if (vcam2Object != null)
+        cams.Add(vcam2Object.GetComponent<CinemachineVirtualCamera>());
         vcam3Object = GameObject.Find("Life Support(Clone)/Life Support Camera");
-        vcam3 = vcam3Object.GetComponent<CinemachineVirtualCamera>();
+        if (vcam3Object != null)
+        cams.Add(vcam3Object.GetComponent<CinemachineVirtualCamera>());
         vcam4Object = GameObject.Find("Heat Shield(Clone)/Heat Shield Camera");
-        vcam4 = vcam4Object.GetComponent<CinemachineVirtualCamera>();
+        if (vcam4Object != null)
+        cams.Add(vcam4Object.GetComponent<CinemachineVirtualCamera>());
         vcam5Object = GameObject.Find("Keypad(Clone)/Keypad Camera");
-        vcam5 = vcam5Object.GetComponent<CinemachineVirtualCamera>();
+        if (vcam5Object != null)
+        cams.Add(vcam5Object.GetComponent<CinemachineVirtualCamera>());
 
         capsuleCamera.m_Priority = 11;
 
     }
 
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            vcam1.m_Priority = 10;
-            vcam2.m_Priority = 10;
-            vcam3.m_Priority = 10;
-            vcam4.m_Priority = 10;
-            vcam5.m_Priority = 10;
+            foreach (var cam in cams) {
+                cam.m_Priority = 10;
+            }
             capsuleCamera.m_Priority = 11;
         }
     }
