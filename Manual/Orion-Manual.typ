@@ -337,7 +337,7 @@ below.
   center,
   grid(
     columns: (2cm, 1cm, 2cm, 1cm, 2cm, 1cm, 2cm, 1cm, 2cm),
-    rows: arrof(4, 2cm),
+    rows: arrof(8, 2cm),
     align: center + horizon,
     stroke: (x, y) => if calc.rem(x, 2) == 0 {
       (
@@ -347,14 +347,22 @@ below.
         bottom: .4pt,
       )
     },
-    keysym("01"), [], keysym("01"), [], keysym("05"), [], keysym("01"), [],
-keysym("01"),
-    keysym("02"), [], keysym("02"), [], keysym("02"), [], keysym("05"), [],
+    keysym("01"), [], keysym("05"), [], keysym("15"), [], keysym("04"), [],
+keysym("08"),
+    keysym("02"), [], keysym("09"), [], keysym("10"), [], keysym("16"), [],
+keysym("15"),
+    keysym("03"), [], keysym("10"), [], keysym("16"), [], keysym("09"), [],
 keysym("02"),
-    keysym("03"), [], keysym("03"), [], keysym("03"), [], keysym("03"), [],
-keysym("05"),
-    keysym("04"), [], keysym("05"), [], keysym("04"), [], keysym("04"), [],
-keysym("04"),
+    keysym("04"), [], keysym("11"), [], keysym("17"), [], keysym("06"), [],
+keysym("10"),
+    keysym("05"), [], keysym("12"), [], keysym("04"), [], keysym("13"), [],
+keysym("03"),
+    keysym("06"), [], keysym("13"), [], keysym("18"), [], keysym("18"), [],
+keysym("14"),
+    keysym("07"), [], keysym("02"), [], keysym("19"), [], keysym("07"), [],
+keysym("19"),
+    keysym("08"), [], keysym("14"), [], keysym("20"), [], keysym("12"), [],
+keysym("12"),
   )
 )
 

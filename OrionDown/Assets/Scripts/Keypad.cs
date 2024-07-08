@@ -13,11 +13,11 @@ public class Keypad : ModuleBehaviour
     private System.Random random = new System.Random();
 
     private List<List<int>> allSymbols = new List<List<int>>{
-        new List<int>(){1, 2, 3, 4},
-        new List<int>(){1, 2, 3, 5},
-        new List<int>(){5, 2, 3, 4},
-        new List<int>(){1, 5, 3, 4},
-        new List<int>(){1, 2, 5, 4}
+        new List<int>(){ 1,  2,  3,  4,  5,  6,  7,  8},
+        new List<int>(){ 5,  9, 10, 11, 12, 13,  2, 14},
+        new List<int>(){15, 10, 16, 17,  4, 18, 19, 20},
+        new List<int>(){ 4, 16,  9,  6, 13, 18,  7, 12},
+        new List<int>(){ 8, 15,  2, 10,  3, 14, 19, 12},
     };
     private List<int> buttonIndices;
     
