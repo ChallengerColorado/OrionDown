@@ -1,4 +1,6 @@
-// command: typst compile symbols.typ "OrionDown/Assets/Resources/Symbols/{n}.png"
+// commands:
+// typst compile symbols.typ "OrionDown/Assets/Resources/Symbols/{n}.png"
+// typst compile symbols.typ "Manual/Graphics/Symbols/{n}.png"
 
 #set page(
   width: 3cm, height: 3cm,

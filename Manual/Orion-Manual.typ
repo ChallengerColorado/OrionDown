@@ -56,6 +56,11 @@
   graphics-path + "ls " + str(num) + ".png"
 )
 
+#let keysym(name) = image(
+  width: 1.8cm,
+  "Graphics/Symbols/" + name + ".png"
+)
+
 #page[
   #set align(
   center)
@@ -287,7 +292,7 @@ necessary.
 
 Due to internal malfunctions and equipment damage, the life support
 configuration files may become corrupted. When this happens, it is necessary for
-the astronaught to reconfirm the crew settings through the digital control
+the astronaut to reconfirm the crew settings through the digital control
 panel.
 
 #ins
@@ -317,3 +322,45 @@ to check whether the correct input was given and move onto the next round. Once
 all rounds have been completed, the status indicator will show the code
 #status[BB] to signal that the settings have all successfully been restored and
 the life support system is in working order.
+
+== Keypad
+
+#ovr
+
+#ins
+
+The panel contains four buttons arranged in a 2x2 grid, each bearing a unique
+symbol. This combination of symbols will be present in only one of the tables
+below.
+
+#align(
+  center,
+  grid(
+    columns: (2cm, 1cm, 2cm, 1cm, 2cm, 1cm, 2cm, 1cm, 2cm),
+    rows: arrof(4, 2cm),
+    align: center + horizon,
+    stroke: (x, y) => if calc.rem(x, 2) == 0 {
+      (
+        left: .4pt,
+        right: .4pt,
+        top: .4pt,
+        bottom: .4pt,
+      )
+    },
+    keysym("01"), [], keysym("01"), [], keysym("05"), [], keysym("01"), [],
+keysym("01"),
+    keysym("02"), [], keysym("02"), [], keysym("02"), [], keysym("05"), [],
+keysym("02"),
+    keysym("03"), [], keysym("03"), [], keysym("03"), [], keysym("03"), [],
+keysym("05"),
+    keysym("04"), [], keysym("05"), [], keysym("04"), [], keysym("04"), [],
+keysym("04"),
+  )
+)
+
+First, identify which table contains all four symbols. Then, the
+astronaut must press the button in the order in which the corresponding symbols
+appear in the table, with the table read from top to bottom. If the buttons were
+pressed in the correct order, the panel status will change to #status[BB] to
+indicate that no further action is needed. If not, the panel will reset and the
+process must be repeated.
