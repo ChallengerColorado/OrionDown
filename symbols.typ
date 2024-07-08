@@ -4,7 +4,7 @@
 
 #set page(
   width: 3cm, height: 3cm,
-  fill: silver
+  //fill: silver
 )
 #set text(
   font: "Junicode",
