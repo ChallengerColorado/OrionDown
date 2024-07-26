@@ -258,15 +258,10 @@ MonoBehaviour:
   presetModulePositions:
   - {fileID: 1996725768}
   - {fileID: 452343970}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1964480229}
+  - {fileID: 1787444521}
+  - {fileID: 634141380}
+  - {fileID: 1728035305}
 --- !u!4 &336893146
 Transform:
   m_ObjectHideFlags: 0
