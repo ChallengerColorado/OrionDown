@@ -12,6 +12,8 @@ public class ForceStartMenu : MonoBehaviour
     }
 
     [RuntimeInitializeOnLoadMethod]
+
+    //Ensures always starting from the start screen to prevent bugs
     static void ForceStart()
     {
         SceneManager.LoadScene(0);

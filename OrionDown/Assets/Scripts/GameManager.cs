@@ -43,6 +43,7 @@ public sealed class GameManager : MonoBehaviour
     public int modulesBroken = 4;
     public Timer GameTimer { get; private set; }
 
+    //Create instance on Awake
     void Awake()
     {
         if (_instance != null)
@@ -63,6 +64,7 @@ public sealed class GameManager : MonoBehaviour
         StartCoroutine(GameTimer.Run);
     }
 
+    //Run when a module is fixed
     public void ModuleFixed(){
         modulesBroken -= 1;
         if (modulesBroken < 1){
@@ -81,6 +83,7 @@ public sealed class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
+    //Determines when and how the game ends win or lose
     public void StopGame(bool finished, bool win)
     {
         StopCoroutine(GameTimer.Run);

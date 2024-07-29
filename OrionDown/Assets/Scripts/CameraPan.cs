@@ -17,16 +17,19 @@ public class CameraPan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Allow player to move main camera only when using it.
         if (capsuleCamera.m_Priority == 11) {
             cameraRotation.x -= xSensitivity * Input.GetAxis("Vertical") * Time.deltaTime * 50;
             cameraRotation.y += ySensitivity * Input.GetAxis("Horizontal") * Time.deltaTime * 50;
+            //x camera limits
             if (cameraRotation.x < -90f) {
                 cameraRotation.x = -90f;
-        }
+            }
             if (cameraRotation.x > 90f) {
                 cameraRotation.x = 90f;
-        }
-        transform.rotation = Quaternion.Euler(cameraRotation);
+            }
+            //Updating camera object
+            transform.rotation = Quaternion.Euler(cameraRotation);
         }
     }
 }
