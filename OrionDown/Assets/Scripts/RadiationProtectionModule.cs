@@ -33,8 +33,8 @@ public class RadiationProtectionModule : ModuleBehaviour
         }
     }
 
-    private const int ImageMapSize = 850;
-    private const int ImageTileSize = 80;
+    private const float ImageMapSize = 400;
+    private const float ImageTileSize = 37.647f;
     private const int TileNumber = 8;
     private const float ImageSpaceSize = (ImageMapSize - TileNumber * ImageTileSize) / (float) (TileNumber + 1);
 
@@ -106,6 +106,11 @@ public class RadiationProtectionModule : ModuleBehaviour
             mazepath.Add(lastmove);
         };
 
+    }
+
+    public void OnButtonPress(int direction)
+    {
+        MazePositioningSystem((Move) direction);
     }
 
     public void MazeEnd(){
