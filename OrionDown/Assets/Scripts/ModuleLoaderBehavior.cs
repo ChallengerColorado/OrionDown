@@ -1,62 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ModuleLoaderBehavior : MonoBehaviour
 {
 
     [SerializeField]
-    public Transform[] presetModulePositions;
+    public Transform[] presetMainControlModulePositions;
+    [SerializeField]
+    public Transform[] presetPropulsionModulePositions;
 
-    private GameObject[] modulePrefabs;
+    private GameObject[] mainControlModulePrefabs;
+    private GameObject propulsionModulePrefab;
 
     private static System.Random random = new System.Random();
 
-    private static List<int> prefabIndicies = new List<int>();  
-
-    public static List<int> usedModules = new List<int>();  
 
     // Start is called before the first frame update
     void Start()
     {
-        modulePrefabs = new GameObject[]
+        mainControlModulePrefabs = new GameObject[]
         {
-            Resources.Load<GameObject>("Modules/Propulsion"),
             Resources.Load<GameObject>("Modules/Radiation Protection"),
             Resources.Load<GameObject>("Modules/Life Support"),
             Resources.Load<GameObject>("Modules/Heat Shield"),
             Resources.Load<GameObject>("Modules/Keypad")
         };
 
-        CreateModules(4);
+        propulsionModulePrefab = Resources.Load<GameObject>("Modules/Propulsion");
+
+        CreateModules(3, 1);
     }
 
-    private void CreateModules(int number)
+    private void CreateModules(int mainControlNumber, int propulsionNumber)
     {
-        List<Transform> availablePositions = new List<Transform>(presetModulePositions);
-        List<Transform> chosenPositions = new List<Transform>();
+        List<int> availableMainControlModuleIndices = new List<int>();
+        List<int> chosenMainControlModuleIndices = new List<int>();
 
-        for (int i = 0; i < number; i++)
+        for (int i = 0; i < mainControlNumber; i++)
         {
-            int newIndex = random.Next(availablePositions.Count);
-            chosenPositions.Add(availablePositions[newIndex]);
-            availablePositions.RemoveAt(newIndex);
-        }
-        int newIndex2;
-        for (int i = 0; i < modulePrefabs.Length; i++){
-        prefabIndicies.Add(i);
-        }
-        foreach (Transform t in chosenPositions)
-        {
-            if (prefabIndicies.Count == 0){
-                for (int j = 0; j < modulePrefabs.Length; j++){
-                prefabIndicies.Add(j);
-                }
+            // if all module options have been exhausted, refresh option list
+            if (availableMainControlModuleIndices.Count == 0) {
+                availableMainControlModuleIndices = Enumerable.Range(0, mainControlModulePrefabs.Length - 1).ToList();
             }
-            newIndex2 = random.Next(prefabIndicies.Count);
-            Instantiate(modulePrefabs[prefabIndicies[newIndex2]], t);
-            usedModules.Add(prefabIndicies[newIndex2]);
-            prefabIndicies.RemoveAt(newIndex2);
+
+            int newIndex = random.Next(availableMainControlModuleIndices.Count);
+            chosenMainControlModuleIndices.Add(availableMainControlModuleIndices[newIndex]);
+            availableMainControlModuleIndices.RemoveAt(newIndex);
+
+        }
+
+        List<Transform> availableMainControlPositions = new List<Transform>(presetMainControlModulePositions);
+
+        foreach (int i in chosenMainControlModuleIndices)
+        {
+            int newPositionIndex = random.Next(availableMainControlPositions.Count);
+            Debug.Log("new index: " + newPositionIndex + ", count: " + availableMainControlPositions.Count);
+            Transform newPosition = availableMainControlPositions[newPositionIndex];
+            availableMainControlPositions.RemoveAt(newPositionIndex);
+
+            Instantiate(mainControlModulePrefabs[i], newPosition);
+        }
+
+        
+        List<Transform> availablePropulsionPositions = new List<Transform>(presetPropulsionModulePositions);
+
+        for (int i = 0; i < propulsionNumber; i++)
+        {
+            int newPositionIndex = random.Next(availablePropulsionPositions.Count);
+            Transform newPosition = availablePropulsionPositions[newPositionIndex];
+            availablePropulsionPositions.RemoveAt(newPositionIndex);
+
+            Instantiate(propulsionModulePrefab, newPosition);
         }
     }
 }
