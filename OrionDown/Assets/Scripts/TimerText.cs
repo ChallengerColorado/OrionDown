@@ -3,15 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// code to run the HUD timer display
 public class TimerText : MonoBehaviour
 {
-
+    // timer text object
     public TMPro.TextMeshProUGUI m_TextMeshPro;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
