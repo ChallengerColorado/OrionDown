@@ -12,6 +12,7 @@ public class Keypad : ModuleBehaviour
 
     private System.Random random = new System.Random();
 
+    //Each int represents a symbol that will be displayed and all 4 sybmols displayed will be from the same list
     private List<List<int>> allSymbols = new List<List<int>>{
         new List<int>(){ 1,  2,  3,  4,  5,  6,  7,  8},
         new List<int>(){ 5,  9, 10, 11, 12, 13,  2, 14},
@@ -41,9 +42,12 @@ public class Keypad : ModuleBehaviour
 
         tempIndex = -1;
 
+        //Index of List of symbols for check solution
         symbolIndex = random.Next(allSymbols.Count);
+        //List of symbols to be used
         symbols = new List<int>(allSymbols[symbolIndex]);
         
+        //Symbols to be displayed from list
         for (int i = 0; i < 4; i++) {
             int newindex = random.Next(symbols.Count);
             symbolsUsed.Add(symbols[newindex]);
@@ -53,12 +57,16 @@ public class Keypad : ModuleBehaviour
             buttonImages[i].texture = Resources.Load<Texture2D>("Symbols/" + symbolsUsed[i].ToString("D2"));
         }
     }
+
+    
     public void ButtonPress(int buttonIndex) {
+        //Highlights pressed button for player
         if (!buttonIndices.Contains(buttonIndex))
         {
             buttonImages[buttonIndex].color = Color.gray;
-
+            //Stores pressed buttons
             buttonIndices.Add(buttonIndex);
+            //Checks when all butons are selected
             if (buttonIndices.Count > 3 && GetStatus() == false)
             {
                 CheckSolution();
@@ -68,9 +76,10 @@ public class Keypad : ModuleBehaviour
 
     private void CheckSolution() {
         for (int i = 0; i < 4; i++){
-
+            //Decodes from button index to the position of the symbol on the button to position in symbols
             int nextButtonIndex = allSymbols[symbolIndex].FindIndex(symbolsUsed[buttonIndices[i]].Equals);
 
+            //checks if the symbol appears later in the list than the previous
             if (tempIndex > nextButtonIndex)
             {
                 InitializeRound();

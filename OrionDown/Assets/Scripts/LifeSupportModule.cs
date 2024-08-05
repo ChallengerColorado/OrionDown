@@ -12,7 +12,8 @@ public class LifeSupportModule : ModuleBehaviour
     [SerializeField]
     public TMP_Text[] charDisplays = new TMP_Text[5];
 
-    private char[][] characters = {
+    //Each list represents a each wheel of letters on the Life Support Module
+    private char[][] letterWheels = {
         new char[6],
         new char[6],
         new char[6],
@@ -20,7 +21,11 @@ public class LifeSupportModule : ModuleBehaviour
         new char[6]
     };
 
+    //The filler letters for the Life Support Module letter wheels
+    //Missing letters are to prevent the player being abnle to spell more than one of the solution words
     private static char[] alphabet = new char[] {'a','b','c','d','e','h','i','j','k','l','n','q','s','t','u','v','y','y'};
+
+    //The solution words that the player needs to sapell with the letter wheels
     private static string[] words = {
         "orion",
         "orbit",
@@ -47,8 +52,11 @@ public class LifeSupportModule : ModuleBehaviour
 
     private int remainingRounds = 3;
 
+    //Tracks the letter wheel positions
     private int[] currentIndices = new int[5];
 
+
+    //Tracks the correct letter wheel positions
     private int[] solutionIndices = new int[5];
 
 
@@ -56,30 +64,35 @@ public class LifeSupportModule : ModuleBehaviour
     private char newchar;
     private void InitializeRound()
     {
+        //Status indicator for player
         SetStatus(false, remainingRounds.ToString("D2"));
 
+        //The letters of the chosen solution word in order
         wchars = words[random.Next(words.Length)].ToCharArray();
-        for (int i = 0; i < characters.Length; i++)
+        for (int i = 0; i < letterWheels.Length; i++)
         {
-            characters[i][0] = wchars[i];
-            for (int j = 1; j < characters[i].Length;)
+            //Solution letters are added to the letter wheels one per in order
+            letterWheels[i][0] = wchars[i];
+            //Random letters from the modified alphabet are added as filler
+            for (int j = 1; j < letterWheels[i].Length;)
             {
                 newchar = alphabet[random.Next(alphabet.Length)];
-                if (!characters[i].Contains(newchar)){
-                characters[i][j] = newchar;
+                if (!letterWheels[i].Contains(newchar)){
+                letterWheels[i][j] = newchar;
                 j++;
                 }
             }
         }
 
+        //What letters the letter wheels start on are randomized
         for(int i = 0; i < currentIndices.Length; i++)
         {
             currentIndices[i] = random.Next(5);
         }
 
-        for (int i = 0; i < characters.Length; i++)
+        for (int i = 0; i < letterWheels.Length; i++)
         {
-            charDisplays[i].text = characters[i][currentIndices[i]].ToString();
+            charDisplays[i].text = letterWheels[i][currentIndices[i]].ToString();
         }
         
     }
@@ -92,23 +105,27 @@ public class LifeSupportModule : ModuleBehaviour
        
 
     }
+
+    //Cycles the corisponding letter wheel in the positive direction
     public void Cycle(int buttonPressed)
     {
-        currentIndices[buttonPressed] = (currentIndices[buttonPressed] + 1) % characters[buttonPressed].Length;
+        currentIndices[buttonPressed] = (currentIndices[buttonPressed] + 1) % letterWheels[buttonPressed].Length;
 
-        charDisplays[buttonPressed].text = characters[buttonPressed][currentIndices[buttonPressed]].ToString();
+        charDisplays[buttonPressed].text = letterWheels[buttonPressed][currentIndices[buttonPressed]].ToString();
     }
 
+    //Cycles the corisponding letter wheel in the negative direction
     public void ReverseCycle(int buttonPressed)
     {
         if (currentIndices[buttonPressed] == 0)
-            currentIndices[buttonPressed] = characters[buttonPressed].Length - 1;
+            currentIndices[buttonPressed] = letterWheels[buttonPressed].Length - 1;
         else
             currentIndices[buttonPressed] = (currentIndices[buttonPressed] - 1);
 
-        charDisplays[buttonPressed].text = characters[buttonPressed][currentIndices[buttonPressed]].ToString();
+        charDisplays[buttonPressed].text = letterWheels[buttonPressed][currentIndices[buttonPressed]].ToString();
     }
 
+    //Checks the solution with the current letter wheel positions 
     public void CheckPassword()
     {
         if (currentIndices.SequenceEqual(solutionIndices)){
