@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* Class to keep track of the state and properties in of an individual wire in the propulsion module
- */
+// class to keep track of the state and properties in of an individual wire in the propulsion module
+// this entire class might be obsolete???
 public class Wire : ModuleBehaviour
 {
     private WireType type;
