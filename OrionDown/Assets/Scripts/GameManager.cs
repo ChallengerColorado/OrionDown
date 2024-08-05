@@ -31,6 +31,7 @@ public sealed class GameManager : MonoBehaviour
         Difficult
     }
 
+    //All states the game can be in
     public enum Missionstatus
     {
         Prep,
@@ -56,6 +57,8 @@ public sealed class GameManager : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    //On game start the timer is started at 5 minutes and it loads the main game scene
     public void StartGame(Difficulty difficulty)
     {
         currentDifficulty = difficulty;
@@ -74,12 +77,15 @@ public sealed class GameManager : MonoBehaviour
             StopGame(true, true);
         }
     }
+
+    //Stops timer and pulls up pause screen(currently unused)
     public void PauseGame()
     {
         GameTimer.SetPaused(true);
         SceneManager.LoadSceneAsync(3);
     }
 
+    //Stops timer and pulls up pause screen(currently unused)
     public void UnpauseGame()
     {
         GameTimer.SetPaused(false);
