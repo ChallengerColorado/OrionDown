@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587272, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1564,7 +1564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8938866556569923485, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8631271764908938518, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
       propertyPath: m_Enabled
@@ -1761,6 +1761,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -2867439378346271968, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
+    - {fileID: -805332297475121861, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
+    - {fileID: 5717766157452798111, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
+    - {fileID: -2638782792351282983, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
+    - {fileID: -4545893170061898620, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
+    - {fileID: -1671727974146666381, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
+    - {fileID: 8760798043893730821, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
+    - {fileID: 8511484366472956896, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
+    - {fileID: 479119014323539088, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
+    - {fileID: -8938866556569923485, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71d7f92efbedc3c4f999d8eaccd5c0d0, type: 3}
