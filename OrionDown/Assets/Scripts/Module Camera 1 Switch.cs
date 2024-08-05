@@ -17,6 +17,7 @@ public class ModuleCamera1Switch : MonoBehaviour
         capsuleCamera = capsuleCameraObject.GetComponent<CinemachineVirtualCamera>();
     }
     private void OnMouseDown() {
+        //Switch to module camera on press of module
         capsuleCamera.m_Priority = 10;
         vcam.m_Priority = 11;
 

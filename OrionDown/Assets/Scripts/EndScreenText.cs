@@ -15,6 +15,7 @@ public class EndScreenText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Ensures end screen text matches win/lose 
         if (GameManager.Instance.currentMissionstatus == GameManager.Missionstatus.Lost){
             m_TextMeshPro.text = "Mission Failed";
         }

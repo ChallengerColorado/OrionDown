@@ -4,7 +4,7 @@
 
 #set page(
   width: 3cm, height: 3cm,
-  //fill: silver
+  fill: rgb("#00E7D8")
 )
 #set text(
   font: "Junicode",
@@ -14,7 +14,8 @@
     "cv14": 1,
     "cv36": 3
   ),
-  size: 3cm
+  size: 3cm,
+  fill: rgb("#101821")
 )
 
 // 1

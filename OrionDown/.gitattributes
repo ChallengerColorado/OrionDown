@@ -1,0 +1,9 @@
+Orion.unitypackage filter=lfs diff=lfs merge=lfs -text
+*.anim filter=lfs diff=lfs merge=lfs -text
+*.controller filter=lfs diff=lfs merge=lfs -text
+*._Materials filter=lfs diff=lfs merge=lfs -text
+*._Textures filter=lfs diff=lfs merge=lfs -text
+*.FISKE filter=lfs diff=lfs merge=lfs -text
+*.TGA filter=lfs diff=lfs merge=lfs -text
+*.PNG filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text

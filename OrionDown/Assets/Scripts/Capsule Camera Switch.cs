@@ -17,6 +17,7 @@ public class CapsuleCameraSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Check if module exists, if so add its camera to cams
         vcam1Object = GameObject.Find("Propulsion(Clone)/Propulsion Camera");
         if (vcam1Object != null)
         cams.Add(vcam1Object.GetComponent<CinemachineVirtualCamera>());
@@ -41,6 +42,7 @@ public class CapsuleCameraSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Allow user to return to the main camera with esc
         if (Input.GetKeyDown(KeyCode.Escape)) {
             foreach (var cam in cams) {
                 cam.m_Priority = 10;

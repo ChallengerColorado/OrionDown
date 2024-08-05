@@ -82,8 +82,7 @@ Manual*]
 
 = Introduction
 
-Although everything possible is done beforehand to limit the possibility of
-the
+Although everything possible is done beforehand to limit the possibility of the
 spacecraft being damaged during a mission, it is still a scenario that both the
 crew of the spacecraft and Mission Control must be prepared for. This manual has
 been written to assist Mission Control in guiding the astronauts through the
@@ -105,11 +104,14 @@ taking the wrong action could further jeopardize the mission!
 
 Throughout the interior of the Orion capsule, several panels can be found. Each
 one interfaces with a different essential system in the spacecraft and can be
-used to detect and fix problems. Should any problems arise, it is imperative
-that the astronauts make an exhaustive search of the capsule interior for panels
-with an error status. All surfaces of the capsule should be thouroughly
-searched. Each panel has a title on the top indicating which system it is
-connected to and a status indicator on the top-right consisting of a
+used to detect and fix problems. Many of these panels are virtual, and can be
+found on the main control screens. The propulsion system's panels, however,
+are not virtual and can be found elsewhere in the capsule. They are marked with
+yellow and black stripes on their exterior. Should any problems arise, it is
+imperative that the astronauts make an exhaustive search of the capsule interior
+for panels with an error status. All surfaces of the capsule should be
+thouroughly searched. Each panel has a title on the top indicating which system
+it is connected to and a status indicator on the top-right consisting of a
 two-character display that conveys information about the state of the connected
 system through the code it displays. Below the title and status indicator is the
 system interface, which contains elements allowing astronauts to interact with
@@ -256,7 +258,7 @@ these. One square in the grid will be highlighted; this square represents the
 current orientation of the control filter. Use the panel status to determine the
 layout of the filter space according to the diagram below. The target position
 of the filter in each layout is marked with a dot. The lines between the spaces
-represent the movement contstraints of the filter; they can be treated as
+represent the movement constraints of the filter; they can be treated as
 barriers that the filters path cannot cross.
 
 #align(

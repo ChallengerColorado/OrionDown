@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+// stores functions for switching between scenes
 public class TransitionButtonBehavior : MonoBehaviour
 {
 
@@ -25,7 +26,8 @@ public class TransitionButtonBehavior : MonoBehaviour
     {
         GameManager.Instance.StopGame(true, false);
     }
-public void GoToWin()
+
+    public void GoToWin()
     {
         GameManager.Instance.StopGame(true, true);
     }

@@ -13,6 +13,7 @@ public class HeatShield : ModuleBehaviour
     [SerializeField] TMP_Text givenWordDisplay;
     [SerializeField] Button[] buttons;
 
+    //RemainingRounds determines how many rounds the player must play depending on difficulty
     private int remainingRounds;
     private Dictionary<GameManager.Difficulty, int> difficultyToRounds = new Dictionary<GameManager.Difficulty, int>()
     {
@@ -73,7 +74,7 @@ public class HeatShield : ModuleBehaviour
 
         remainingRounds = difficultyToRounds[GameManager.Instance.currentDifficulty];
 
-        SetStatus(false, "ö*");
+        SetStatus(false, "ï¿½*");
         InitializeRound();
     }
 
