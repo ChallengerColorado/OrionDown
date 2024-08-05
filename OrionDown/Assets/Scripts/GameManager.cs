@@ -22,6 +22,8 @@ public sealed class GameManager : MonoBehaviour
         }
     }
 
+
+    //Difficulty controls the number of rounds and/or the difficulty of one round for each module
     public enum Difficulty
     {
         Easy,
