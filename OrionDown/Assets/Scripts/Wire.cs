@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Class to keep track of the state and properties in of an individual wire in the propulsion module
+ */
 public class Wire : ModuleBehaviour
 {
     private WireType type;
 
+
+    // stores how many spaces farther to the right the lower socket is than the upper socket
     private int _offset;
     private int Offset
     {
@@ -16,6 +20,7 @@ public class Wire : ModuleBehaviour
         }
         set
         {
+            // check to make sure that the value matches one of the provided wire models
             if (Mathf.Abs(value) > 2)
             {
                 throw new ArgumentException("WireOffset must be a value from -2 to 2.");
@@ -23,7 +28,7 @@ public class Wire : ModuleBehaviour
         }
     }
     
-
+    // stores whether or not the wire is activated or deactivated
     private bool _wireStatus = true;
     public bool WireStatus {
         get
@@ -33,8 +38,6 @@ public class Wire : ModuleBehaviour
         set
         {
             _wireStatus = value;
-
-            // set shape
         }
     }
 
@@ -43,18 +46,6 @@ public class Wire : ModuleBehaviour
         transform.SetParent(socketTransform, false);
         Offset = wireOffset;
         type = wireType;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public enum WireType
