@@ -19,6 +19,7 @@ public class CameraPan : MonoBehaviour
     {
         //Allow player to move main camera only when using it.
         if (capsuleCamera.m_Priority == 11) {
+            //Frame independent rotation using wasd keys
             cameraRotation.x -= xSensitivity * Input.GetAxis("Vertical") * Time.deltaTime * 50;
             cameraRotation.y += ySensitivity * Input.GetAxis("Horizontal") * Time.deltaTime * 50;
             //x camera limits
