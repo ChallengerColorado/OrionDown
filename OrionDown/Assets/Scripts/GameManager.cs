@@ -64,10 +64,11 @@ public sealed class GameManager : MonoBehaviour
         StartCoroutine(GameTimer.Run);
     }
 
-    //Run when a module is fixed
+    //Run when a module is fixed, tracks how many are still broken
     public void ModuleFixed(){
         modulesBroken -= 1;
         if (modulesBroken < 1){
+            //Win condition
             StopGame(true, true);
         }
     }
