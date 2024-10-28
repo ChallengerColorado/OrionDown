@@ -42,8 +42,8 @@ public class CapsuleCameraSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Allow user to return to the main camera with esc
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        //Allow user to return to the main camera with space
+        if (Input.GetKeyDown(KeyCode.Space)) {
             foreach (var cam in cams) {
                 cam.m_Priority = 10;
             }

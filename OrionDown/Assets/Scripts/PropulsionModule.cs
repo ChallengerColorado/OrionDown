@@ -135,6 +135,7 @@ public class PropulsionModule : ModuleBehaviour
             transform.Find("Module Base/Top_Socket_6"),
             transform.Find("Module Base/Top_Socket_7")
         };
+        Debug.Log(transform.Find("Module Base/Top_Socket_0"));
 
         // get smooth wire prefabs
         smoothWirePrefabs = new GameObject[]

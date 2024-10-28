@@ -47,7 +47,7 @@ public class ModuleLoaderBehavior : MonoBehaviour
         {
             // if all module options have been exhausted, refresh option list
             if (availableMainControlModuleIndices.Count == 0) {
-                availableMainControlModuleIndices = Enumerable.Range(0, mainControlModulePrefabs.Length - 1).ToList();
+                availableMainControlModuleIndices = Enumerable.Range(0, mainControlModulePrefabs.Length).ToList();
             }
 
             // choose a random item from the list of available module indices

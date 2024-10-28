@@ -936,6 +936,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 953524082509931584, guid: 8b30f27d843c9d24793be55e290360ab, type: 3}
+      propertyPath: m_Name
+      value: Kaypad Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 3591597026298577460, guid: 8b30f27d843c9d24793be55e290360ab, type: 3}
       propertyPath: m_text
       value: Keypad
